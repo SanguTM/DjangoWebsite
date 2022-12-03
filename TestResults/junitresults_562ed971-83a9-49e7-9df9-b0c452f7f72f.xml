@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?><testsuites><testsuite name="pytest" errors="0" failures="0" skipped="0" tests="4" time="0.314" timestamp="2022-12-01T20:24:52.242433" hostname="Sangu-PC"><testcase classname="app.tests.test_urls.TestUrls" name="test_about_url_is_resolved" file="app\tests\test_urls.py" line="11" time="0.014"><system-out>--------------------------------- Captured Log ---------------------------------
+
+--------------------------------- Captured Out ---------------------------------
+ResolverMatch(func=app.views.about, args=(), kwargs={}, url_name='website-about', app_names=[], namespaces=[], route='about/')
+
+</system-out><system-err>--------------------------------- Captured Err ---------------------------------
+
+</system-err></testcase><testcase classname="app.tests.test_urls.TestUrls" name="test_galery_url_is_resolved" file="app\tests\test_urls.py" line="19" time="0.001"><system-out>--------------------------------- Captured Log ---------------------------------
+
+--------------------------------- Captured Out ---------------------------------
+ResolverMatch(func=app.views.galery, args=(), kwargs={}, url_name='website-galery', app_names=[], namespaces=[], route='galery/')
+
+</system-out><system-err>--------------------------------- Captured Err ---------------------------------
+
+</system-err></testcase><testcase classname="app.tests.test_urls.TestUrls" name="test_home_url_is_resolved" file="app\tests\test_urls.py" line="31" time="0.001"><system-out>--------------------------------- Captured Log ---------------------------------
+
+--------------------------------- Captured Out ---------------------------------
+ResolverMatch(func=app.views.PostDetailView, args=(), kwargs={'pk': 1}, url_name='post-detail', app_names=[], namespaces=[], route='post/&lt;int:pk&gt;/', captured_kwargs={'pk': 1})
+
+</system-out><system-err>--------------------------------- Captured Err ---------------------------------
+
+</system-err></testcase><testcase classname="app.tests.test_urls.TestUrls" name="test_prenumerate_url_is_resolved" file="app\tests\test_urls.py" line="25" time="0.001"><system-out>--------------------------------- Captured Log ---------------------------------
+
+--------------------------------- Captured Out ---------------------------------
+ResolverMatch(func=app.views.prenumerate, args=(), kwargs={}, url_name='website-prenumerate', app_names=[], namespaces=[], route='prenumerate/')
+
+</system-out><system-err>--------------------------------- Captured Err ---------------------------------
+
+</system-err></testcase></testsuite></testsuites>

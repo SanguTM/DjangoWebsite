@@ -1,0 +1,35 @@
+{% extends "app/base.html" %}
+
+{% block content %}
+	    {% for post in posts %}
+        <article class="media content-section">
+          <div class="media-body">
+            <div class="article-metadata">
+              <a class="mr-2" href="#">{{ post.author }}</a>
+              <small class="text-muted">{{ post.date_posted|date:"Y F d"}}</small>
+            </div>
+            <h2><a class="article-title" href="#">{{ post.title }}</a></h2>
+            <p class="article-content">{{ post.content }}</p>
+			<hr>
+          </div>
+        </article>
+    {% endfor %}
+
+	<h2>Naminė katė</h2>
+	<img src="static/app/images/Gatto_europeo4.jpg" alt="Katė" onclick="onClick(this)" class="img1 img1-s">
+	<p>Naminė katė arba katė (Felis catus) – katinių (Felidae) šeimos, rainuotųjų kačių (Felis) genties naminis, plėšrusis žinduolis, 
+	žmonių išplatintos ir auginamos visame pasaulyje, išskyrus Antarktidą. Katė yra mėsėdis plėšrūnas, gali medžioti daugiau nei 1000 
+	rūšių smulkių ir nedidelių gyvūnų. Be žmonių priežiūros naminės katės sulaukėja, sėkmingai išgyvena laisvėje, dauginasi ir kartais 
+	sudaro ištisas sulaukėjusių kačių kolonijas.</p><br>
+				
+	<h4>Prijaukinimas</h4><br>
+
+	<p>Kates žmonės prijaukino maždaug 8000-3000 m. pr. m. e.[1]. Naujausi šaltiniai teigia, kad naminės katės daugiausia kilusios iš 
+	prijaukintų afroazinių kačių (Felis lybica) rūšies Felis lybica lybica porūšio populiacijos gyvenusios Mesopotamijoje[2]. 
+	Šaltiniai teigia, kad pirmosios katės buvo prijaukintos Kipre, maždaug 7000-6000 m. pr. m. e., anot dar kitų šaltinių Senovės 
+	Egipte apie 3500 m. pr. m. e. 2004 m. archeologai Kipre atkasė kapą, kuriame greta vienas kito palaidotas žmogus ir katė, šiam kapui 
+	jau 9500 metų [3]. Lietuvoje randamos tik nuo 1390 metų (Kernavėje).</p><br>
+				
+	<img src="static/app/images/Cat1.jpg" alt="Katė" onclick="onClick(this)" class="img2"> <br>
+	<hr>
+{% endblock content %}

@@ -1,0 +1,267 @@
+<?xml version="1.0" encoding="utf-8"?><testsuites><testsuite name="pytest" errors="0" failures="3" skipped="0" tests="19" time="7.054" timestamp="2022-12-02T01:57:24.270134" hostname="Sangu-PC"><testcase classname="app.tests.test_forms.ModelsView" name="test_PostForm_for_valid_data" file="app\tests\test_forms.py" line="13" time="0.029"><failure message="AssertionError: False is not true">self = &lt;app.tests.test_forms.ModelsView testMethod=test_PostForm_for_valid_data&gt;
+
+    def test_PostForm_for_valid_data(self):
+        form = UserRegisterForm(data={"username": "testas", 'email':'pastas@pastas.lt', 'password1':'slaptazodis', 'password2':'slaptazodis'})
+        print(form.errors)
+&gt;       self.assertTrue(form.is_valid())
+E       AssertionError: False is not true
+
+app\tests\test_forms.py:17: AssertionError</failure><system-out>--------------------------------- Captured Log ---------------------------------
+
+--------------------------------- Captured Out ---------------------------------
+&lt;ul class="errorlist"&gt;&lt;li&gt;password2&lt;ul class="errorlist"&gt;&lt;li&gt;The password is too similar to the email address.&lt;/li&gt;&lt;/ul&gt;&lt;/li&gt;&lt;/ul&gt;
+
+</system-out><system-err>--------------------------------- Captured Err ---------------------------------
+
+</system-err></testcase><testcase classname="app.tests.test_models.ModelsView" name="test_post_is_assigned" file="app\tests\test_models.py" line="25" time="2.006"><system-out>--------------------------------- Captured Log ---------------------------------
+
+--------------------------------- Captured Out ---------------------------------
+
+</system-out><system-err>--------------------------------- Captured Err ---------------------------------
+
+</system-err></testcase><testcase classname="app.tests.test_models.ModelsView" name="test_user_is_assigned" file="app\tests\test_models.py" line="21" time="1.475"><system-out>--------------------------------- Captured Log ---------------------------------
+
+--------------------------------- Captured Out ---------------------------------
+
+</system-out><system-err>--------------------------------- Captured Err ---------------------------------
+
+</system-err></testcase><testcase classname="app.tests.test_urls.TestUrls" name="test_about_url_is_resolved" file="app\tests\test_urls.py" line="13" time="0.010"><system-out>--------------------------------- Captured Log ---------------------------------
+
+--------------------------------- Captured Out ---------------------------------
+ResolverMatch(func=app.views.about, args=(), kwargs={}, url_name='website-about', app_names=[], namespaces=[], route='about/')
+
+</system-out><system-err>--------------------------------- Captured Err ---------------------------------
+
+</system-err></testcase><testcase classname="app.tests.test_urls.TestUrls" name="test_create_url_is_resolved" file="app\tests\test_urls.py" line="36" time="0.001"><system-out>--------------------------------- Captured Log ---------------------------------
+
+--------------------------------- Captured Out ---------------------------------
+ResolverMatch(func=app.views.PostCreateView, args=(), kwargs={}, url_name='post-create', app_names=[], namespaces=[], route='post/new/')
+
+</system-out><system-err>--------------------------------- Captured Err ---------------------------------
+
+</system-err></testcase><testcase classname="app.tests.test_urls.TestUrls" name="test_delete_url_is_resolved" file="app\tests\test_urls.py" line="46" time="0.001"><system-out>--------------------------------- Captured Log ---------------------------------
+
+--------------------------------- Captured Out ---------------------------------
+ResolverMatch(func=app.views.PostDeleteView, args=(), kwargs={'pk': 1}, url_name='post-delete', app_names=[], namespaces=[], route='post/&lt;int:pk&gt;/delete/', captured_kwargs={'pk': 1})
+
+</system-out><system-err>--------------------------------- Captured Err ---------------------------------
+
+</system-err></testcase><testcase classname="app.tests.test_urls.TestUrls" name="test_details_url_is_resolved" file="app\tests\test_urls.py" line="31" time="0.001"><system-out>--------------------------------- Captured Log ---------------------------------
+
+--------------------------------- Captured Out ---------------------------------
+ResolverMatch(func=app.views.PostDetailView, args=(), kwargs={'pk': 1}, url_name='post-detail', app_names=[], namespaces=[], route='post/&lt;int:pk&gt;/', captured_kwargs={'pk': 1})
+
+</system-out><system-err>--------------------------------- Captured Err ---------------------------------
+
+</system-err></testcase><testcase classname="app.tests.test_urls.TestUrls" name="test_galery_url_is_resolved" file="app\tests\test_urls.py" line="21" time="0.001"><system-out>--------------------------------- Captured Log ---------------------------------
+
+--------------------------------- Captured Out ---------------------------------
+ResolverMatch(func=app.views.galery, args=(), kwargs={}, url_name='website-galery', app_names=[], namespaces=[], route='galery/')
+
+</system-out><system-err>--------------------------------- Captured Err ---------------------------------
+
+</system-err></testcase><testcase classname="app.tests.test_urls.TestUrls" name="test_home_url_is_resolved" file="app\tests\test_urls.py" line="8" time="0.001"><system-out>--------------------------------- Captured Log ---------------------------------
+
+--------------------------------- Captured Out ---------------------------------
+ResolverMatch(func=app.views.PostListView, args=(), kwargs={}, url_name='website-home', app_names=[], namespaces=[], route='')
+
+</system-out><system-err>--------------------------------- Captured Err ---------------------------------
+
+</system-err></testcase><testcase classname="app.tests.test_urls.TestUrls" name="test_login_url_is_resolved" file="app\tests\test_urls.py" line="66" time="0.001"><system-out>--------------------------------- Captured Log ---------------------------------
+
+--------------------------------- Captured Out ---------------------------------
+ResolverMatch(func=django.contrib.auth.views.LoginView, args=(), kwargs={}, url_name='login', app_names=[], namespaces=[], route='login/')
+
+</system-out><system-err>--------------------------------- Captured Err ---------------------------------
+
+</system-err></testcase><testcase classname="app.tests.test_urls.TestUrls" name="test_logout_url_is_resolved" file="app\tests\test_urls.py" line="71" time="0.001"><system-out>--------------------------------- Captured Log ---------------------------------
+
+--------------------------------- Captured Out ---------------------------------
+ResolverMatch(func=django.contrib.auth.views.LogoutView, args=(), kwargs={}, url_name='logout', app_names=[], namespaces=[], route='logout/')
+
+</system-out><system-err>--------------------------------- Captured Err ---------------------------------
+
+</system-err></testcase><testcase classname="app.tests.test_urls.TestUrls" name="test_passwordreset_url_is_resolved" file="app\tests\test_urls.py" line="76" time="0.001"><system-out>--------------------------------- Captured Log ---------------------------------
+
+--------------------------------- Captured Out ---------------------------------
+ResolverMatch(func=django.contrib.auth.views.PasswordResetView, args=(), kwargs={}, url_name='password-reset', app_names=[], namespaces=[], route='password-reset/')
+
+</system-out><system-err>--------------------------------- Captured Err ---------------------------------
+
+</system-err></testcase><testcase classname="app.tests.test_urls.TestUrls" name="test_prenumerate_url_is_resolved" file="app\tests\test_urls.py" line="26" time="0.001"><system-out>--------------------------------- Captured Log ---------------------------------
+
+--------------------------------- Captured Out ---------------------------------
+ResolverMatch(func=app.views.prenumerate, args=(), kwargs={}, url_name='website-prenumerate', app_names=[], namespaces=[], route='prenumerate/')
+
+</system-out><system-err>--------------------------------- Captured Err ---------------------------------
+
+</system-err></testcase><testcase classname="app.tests.test_urls.TestUrls" name="test_profile_url_is_resolved" file="app\tests\test_urls.py" line="61" time="0.001"><system-out>--------------------------------- Captured Log ---------------------------------
+
+--------------------------------- Captured Out ---------------------------------
+ResolverMatch(func=Users.views.profile, args=(), kwargs={}, url_name='profile', app_names=[], namespaces=[], route='profile/')
+
+</system-out><system-err>--------------------------------- Captured Err ---------------------------------
+
+</system-err></testcase><testcase classname="app.tests.test_urls.TestUrls" name="test_register_url_is_resolved" file="app\tests\test_urls.py" line="56" time="0.001"><system-out>--------------------------------- Captured Log ---------------------------------
+
+--------------------------------- Captured Out ---------------------------------
+ResolverMatch(func=Users.views.register, args=(), kwargs={}, url_name='register', app_names=[], namespaces=[], route='register/')
+
+</system-out><system-err>--------------------------------- Captured Err ---------------------------------
+
+</system-err></testcase><testcase classname="app.tests.test_urls.TestUrls" name="test_update_url_is_resolved" file="app\tests\test_urls.py" line="41" time="0.001"><system-out>--------------------------------- Captured Log ---------------------------------
+
+--------------------------------- Captured Out ---------------------------------
+ResolverMatch(func=app.views.PostUpdateView, args=(), kwargs={'pk': 1}, url_name='post-update', app_names=[], namespaces=[], route='post/&lt;int:pk&gt;/update/', captured_kwargs={'pk': 1})
+
+</system-out><system-err>--------------------------------- Captured Err ---------------------------------
+
+</system-err></testcase><testcase classname="app.tests.test_urls.TestUrls" name="test_userposts_url_is_resolved" file="app\tests\test_urls.py" line="51" time="0.001"><system-out>--------------------------------- Captured Log ---------------------------------
+
+--------------------------------- Captured Out ---------------------------------
+ResolverMatch(func=app.views.UserPostListView, args=(), kwargs={'username': '1'}, url_name='user-posts', app_names=[], namespaces=[], route='_user/&lt;str:username&gt;', captured_kwargs={'username': '1'})
+
+</system-out><system-err>--------------------------------- Captured Err ---------------------------------
+
+</system-err></testcase><testcase classname="app.tests.test_views.TestView" name="test_project_home_GET" file="app\tests\test_views.py" line="20" time="1.613"><failure message="AssertionError: No templates used to render the response">self = &lt;app.tests.test_views.TestView testMethod=test_project_home_GET&gt;
+
+    def test_project_home_GET(self):
+        client = Client()
+        url = reverse('website-home')
+        response = client.get(url)
+    
+        self.assertEquals(response.status_code, 200)
+        #self.client.login(username='Sangu', password='123')
+        print(response.template_name)
+&gt;       self.assertTemplateUsed(response, 'app/index.html')
+
+app\tests\test_views.py:29: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+env1\lib\site-packages\django\test\testcases.py:849: in assertTemplateUsed
+    self._assert_template_used(template_name, template_names, msg_prefix, count)
+env1\lib\site-packages\django\test\testcases.py:813: in _assert_template_used
+    self.fail(msg_prefix + "No templates used to render the response")
+E   AssertionError: No templates used to render the response</failure><system-out>--------------------------------- Captured Log ---------------------------------
+
+--------------------------------- Captured Out ---------------------------------
+['app/index.html', 'app/post_list.html']
+
+</system-out><system-err>--------------------------------- Captured Err ---------------------------------
+
+</system-err></testcase><testcase classname="app.tests.test_views.TestView" name="test_project_postdetail_GET" file="app\tests\test_views.py" line="30" time="1.436"><failure message="django.urls.exceptions.NoReverseMatch: Reverse for 'post-detail' with no arguments not found. 1 pattern(s) tried: ['post/(?P&lt;pk&gt;[0-9]+)/\\Z']">self = &lt;app.tests.test_views.TestView testMethod=test_project_postdetail_GET&gt;
+
+    def test_project_postdetail_GET(self):
+        client = Client()
+&gt;       url = reverse('post-detail')
+
+app\tests\test_views.py:33: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+env1\lib\site-packages\django\urls\base.py:88: in reverse
+    return resolver._reverse_with_prefix(view, prefix, *args, **kwargs)
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+
+self = &lt;URLResolver 'DjangoWebsite.urls' (None:None) '^/'&gt;
+lookup_view = 'post-detail', _prefix = '/', args = (), kwargs = {}
+possibilities = [([('post/%(pk)s/', ['pk'])], 'post/(?P&lt;pk&gt;[0-9]+)/\\Z', {}, {'pk': &lt;django.urls.converters.IntConverter object at 0x0000024B279ACEB0&gt;})]
+possibility = [('post/%(pk)s/', ['pk'])], pattern = 'post/(?P&lt;pk&gt;[0-9]+)/\\Z'
+defaults = {}
+converters = {'pk': &lt;django.urls.converters.IntConverter object at 0x0000024B279ACEB0&gt;}
+result = 'post/%(pk)s/', params = ['pk']
+
+    def _reverse_with_prefix(self, lookup_view, _prefix, *args, **kwargs):
+        if args and kwargs:
+            raise ValueError("Don't mix *args and **kwargs in call to reverse()!")
+    
+        if not self._populated:
+            self._populate()
+    
+        possibilities = self.reverse_dict.getlist(lookup_view)
+    
+        for possibility, pattern, defaults, converters in possibilities:
+            for result, params in possibility:
+                if args:
+                    if len(args) != len(params):
+                        continue
+                    candidate_subs = dict(zip(params, args))
+                else:
+                    if set(kwargs).symmetric_difference(params).difference(defaults):
+                        continue
+                    matches = True
+                    for k, v in defaults.items():
+                        if k in params:
+                            continue
+                        if kwargs.get(k, v) != v:
+                            matches = False
+                            break
+                    if not matches:
+                        continue
+                    candidate_subs = kwargs
+                # Convert the candidate subs to text using Converter.to_url().
+                text_candidate_subs = {}
+                match = True
+                for k, v in candidate_subs.items():
+                    if k in converters:
+                        try:
+                            text_candidate_subs[k] = converters[k].to_url(v)
+                        except ValueError:
+                            match = False
+                            break
+                    else:
+                        text_candidate_subs[k] = str(v)
+                if not match:
+                    continue
+                # WSGI provides decoded URLs, without %xx escapes, and the URL
+                # resolver operates on such URLs. First substitute arguments
+                # without quoting to build a decoded URL and look for a match.
+                # Then, if we have a match, redo the substitution with quoted
+                # arguments in order to return a properly encoded URL.
+                candidate_pat = _prefix.replace("%", "%%") + result
+                if re.search(
+                    "^%s%s" % (re.escape(_prefix), pattern),
+                    candidate_pat % text_candidate_subs,
+                ):
+                    # safe characters from `pchar` definition of RFC 3986
+                    url = quote(
+                        candidate_pat % text_candidate_subs,
+                        safe=RFC3986_SUBDELIMS + "/~:@",
+                    )
+                    # Don't allow construction of scheme relative urls.
+                    return escape_leading_slashes(url)
+        # lookup_view can be URL name or callable, but callables are not
+        # friendly in error messages.
+        m = getattr(lookup_view, "__module__", None)
+        n = getattr(lookup_view, "__name__", None)
+        if m is not None and n is not None:
+            lookup_view_s = "%s.%s" % (m, n)
+        else:
+            lookup_view_s = lookup_view
+    
+        patterns = [pattern for (_, pattern, _, _) in possibilities]
+        if patterns:
+            if args:
+                arg_msg = "arguments '%s'" % (args,)
+            elif kwargs:
+                arg_msg = "keyword arguments '%s'" % kwargs
+            else:
+                arg_msg = "no arguments"
+            msg = "Reverse for '%s' with %s not found. %d pattern(s) tried: %s" % (
+                lookup_view_s,
+                arg_msg,
+                len(patterns),
+                patterns,
+            )
+        else:
+            msg = (
+                "Reverse for '%(view)s' not found. '%(view)s' is not "
+                "a valid view function or pattern name." % {"view": lookup_view_s}
+            )
+&gt;       raise NoReverseMatch(msg)
+E       django.urls.exceptions.NoReverseMatch: Reverse for 'post-detail' with no arguments not found. 1 pattern(s) tried: ['post/(?P&lt;pk&gt;[0-9]+)/\\Z']
+
+env1\lib\site-packages\django\urls\resolvers.py:828: NoReverseMatch</failure><system-out>--------------------------------- Captured Log ---------------------------------
+
+--------------------------------- Captured Out ---------------------------------
+
+</system-out><system-err>--------------------------------- Captured Err ---------------------------------
+
+</system-err></testcase></testsuite></testsuites>

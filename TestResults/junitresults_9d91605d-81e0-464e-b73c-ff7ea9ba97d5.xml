@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?><testsuites><testsuite name="pytest" errors="0" failures="0" skipped="0" tests="2" time="0.293" timestamp="2022-12-01T20:20:49.211985" hostname="Sangu-PC"><testcase classname="app.tests.test_urls.TestUrls" name="test_about_url_is_resolved" file="app\tests\test_urls.py" line="11" time="0.012"><system-out>--------------------------------- Captured Log ---------------------------------
+
+--------------------------------- Captured Out ---------------------------------
+ResolverMatch(func=app.views.about, args=(), kwargs={}, url_name='website-about', app_names=[], namespaces=[], route='about/')
+
+</system-out><system-err>--------------------------------- Captured Err ---------------------------------
+
+</system-err></testcase><testcase classname="app.tests.test_urls.TestUrls" name="test_home_url_is_resolved" file="app\tests\test_urls.py" line="6" time="0.001"><system-out>--------------------------------- Captured Log ---------------------------------
+
+--------------------------------- Captured Out ---------------------------------
+ResolverMatch(func=app.views.PostListView, args=(), kwargs={}, url_name='website-home', app_names=[], namespaces=[], route='')
+
+</system-out><system-err>--------------------------------- Captured Err ---------------------------------
+
+</system-err></testcase></testsuite></testsuites>

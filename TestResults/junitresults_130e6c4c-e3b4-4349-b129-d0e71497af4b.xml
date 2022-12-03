@@ -1,0 +1,154 @@
+<?xml version="1.0" encoding="utf-8"?><testsuites><testsuite name="pytest" errors="0" failures="2" skipped="0" tests="12" time="0.435" timestamp="2022-12-01T21:03:28.348748" hostname="Sangu-PC"><testcase classname="app.tests.test_urls.TestUrls" name="test_about_url_is_resolved" file="app\tests\test_urls.py" line="12" time="0.011"><system-out>--------------------------------- Captured Log ---------------------------------
+
+--------------------------------- Captured Out ---------------------------------
+ResolverMatch(func=app.views.about, args=(), kwargs={}, url_name='website-about', app_names=[], namespaces=[], route='about/')
+
+</system-out><system-err>--------------------------------- Captured Err ---------------------------------
+
+</system-err></testcase><testcase classname="app.tests.test_urls.TestUrls" name="test_create_url_is_resolved" file="app\tests\test_urls.py" line="35" time="0.001"><system-out>--------------------------------- Captured Log ---------------------------------
+
+--------------------------------- Captured Out ---------------------------------
+ResolverMatch(func=app.views.PostCreateView, args=(), kwargs={}, url_name='post-create', app_names=[], namespaces=[], route='post/new/')
+
+</system-out><system-err>--------------------------------- Captured Err ---------------------------------
+
+</system-err></testcase><testcase classname="app.tests.test_urls.TestUrls" name="test_delete_url_is_resolved" file="app\tests\test_urls.py" line="45" time="0.001"><system-out>--------------------------------- Captured Log ---------------------------------
+
+--------------------------------- Captured Out ---------------------------------
+ResolverMatch(func=app.views.PostDeleteView, args=(), kwargs={'pk': 1}, url_name='post-delete', app_names=[], namespaces=[], route='post/&lt;int:pk&gt;/delete/', captured_kwargs={'pk': 1})
+
+</system-out><system-err>--------------------------------- Captured Err ---------------------------------
+
+</system-err></testcase><testcase classname="app.tests.test_urls.TestUrls" name="test_details_url_is_resolved" file="app\tests\test_urls.py" line="30" time="0.001"><system-out>--------------------------------- Captured Log ---------------------------------
+
+--------------------------------- Captured Out ---------------------------------
+ResolverMatch(func=app.views.PostDetailView, args=(), kwargs={'pk': 1}, url_name='post-detail', app_names=[], namespaces=[], route='post/&lt;int:pk&gt;/', captured_kwargs={'pk': 1})
+
+</system-out><system-err>--------------------------------- Captured Err ---------------------------------
+
+</system-err></testcase><testcase classname="app.tests.test_urls.TestUrls" name="test_galery_url_is_resolved" file="app\tests\test_urls.py" line="20" time="0.001"><system-out>--------------------------------- Captured Log ---------------------------------
+
+--------------------------------- Captured Out ---------------------------------
+ResolverMatch(func=app.views.galery, args=(), kwargs={}, url_name='website-galery', app_names=[], namespaces=[], route='galery/')
+
+</system-out><system-err>--------------------------------- Captured Err ---------------------------------
+
+</system-err></testcase><testcase classname="app.tests.test_urls.TestUrls" name="test_home_url_is_resolved" file="app\tests\test_urls.py" line="7" time="0.001"><system-out>--------------------------------- Captured Log ---------------------------------
+
+--------------------------------- Captured Out ---------------------------------
+ResolverMatch(func=app.views.PostListView, args=(), kwargs={}, url_name='website-home', app_names=[], namespaces=[], route='')
+
+</system-out><system-err>--------------------------------- Captured Err ---------------------------------
+
+</system-err></testcase><testcase classname="app.tests.test_urls.TestUrls" name="test_login_url_is_resolved" file="app\tests\test_urls.py" line="67" time="0.001"><failure message="NameError: name 'LoginView' is not defined">self = &lt;app.tests.test_urls.TestUrls testMethod=test_login_url_is_resolved&gt;
+
+    def test_login_url_is_resolved(self):
+        url = reverse('login')
+        print(resolve(url))
+&gt;       self.assertEquals(resolve(url).func.view_class, LoginView)
+E       NameError: name 'LoginView' is not defined
+
+app\tests\test_urls.py:71: NameError</failure><system-out>--------------------------------- Captured Log ---------------------------------
+
+--------------------------------- Captured Out ---------------------------------
+ResolverMatch(func=django.contrib.auth.views.LoginView, args=(), kwargs={}, url_name='login', app_names=[], namespaces=[], route='login/')
+
+</system-out><system-err>--------------------------------- Captured Err ---------------------------------
+
+</system-err></testcase><testcase classname="app.tests.test_urls.TestUrls" name="test_prenumerate_url_is_resolved" file="app\tests\test_urls.py" line="25" time="0.001"><system-out>--------------------------------- Captured Log ---------------------------------
+
+--------------------------------- Captured Out ---------------------------------
+ResolverMatch(func=app.views.prenumerate, args=(), kwargs={}, url_name='website-prenumerate', app_names=[], namespaces=[], route='prenumerate/')
+
+</system-out><system-err>--------------------------------- Captured Err ---------------------------------
+
+</system-err></testcase><testcase classname="app.tests.test_urls.TestUrls" name="test_profile_url_is_resolved" file="app\tests\test_urls.py" line="62" time="0.001"><system-out>--------------------------------- Captured Log ---------------------------------
+
+--------------------------------- Captured Out ---------------------------------
+ResolverMatch(func=Users.views.profile, args=(), kwargs={}, url_name='profile', app_names=[], namespaces=[], route='profile/')
+
+</system-out><system-err>--------------------------------- Captured Err ---------------------------------
+
+</system-err></testcase><testcase classname="app.tests.test_urls.TestUrls" name="test_register_url_is_resolved" file="app\tests\test_urls.py" line="57" time="0.001"><system-out>--------------------------------- Captured Log ---------------------------------
+
+--------------------------------- Captured Out ---------------------------------
+ResolverMatch(func=Users.views.register, args=(), kwargs={}, url_name='register', app_names=[], namespaces=[], route='register/')
+
+</system-out><system-err>--------------------------------- Captured Err ---------------------------------
+
+</system-err></testcase><testcase classname="app.tests.test_urls.TestUrls" name="test_update_url_is_resolved" file="app\tests\test_urls.py" line="40" time="0.001"><system-out>--------------------------------- Captured Log ---------------------------------
+
+--------------------------------- Captured Out ---------------------------------
+ResolverMatch(func=app.views.PostUpdateView, args=(), kwargs={'pk': 1}, url_name='post-update', app_names=[], namespaces=[], route='post/&lt;int:pk&gt;/update/', captured_kwargs={'pk': 1})
+
+</system-out><system-err>--------------------------------- Captured Err ---------------------------------
+
+</system-err></testcase><testcase classname="app.tests.test_urls.TestUrls" name="test_userpost_url_is_resolved" file="app\tests\test_urls.py" line="50" time="0.001"><failure message="django.urls.exceptions.Resolver404: {'path': 'user-post'}">self = &lt;app.tests.test_urls.TestUrls testMethod=test_userpost_url_is_resolved&gt;
+
+    def test_userpost_url_is_resolved(self):
+&gt;       resolver = resolve('user-post')
+
+app\tests\test_urls.py:52: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+env1\lib\site-packages\django\urls\base.py:24: in resolve
+    return get_resolver(urlconf).resolve(path)
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+
+self = &lt;URLResolver 'DjangoWebsite.urls' (None:None) '^/'&gt;, path = 'user-post'
+
+    def resolve(self, path):
+        path = str(path)  # path may be a reverse_lazy object
+        tried = []
+        match = self.pattern.match(path)
+        if match:
+            new_path, args, kwargs = match
+            for pattern in self.url_patterns:
+                try:
+                    sub_match = pattern.resolve(new_path)
+                except Resolver404 as e:
+                    self._extend_tried(tried, pattern, e.args[0].get("tried"))
+                else:
+                    if sub_match:
+                        # Merge captured arguments in match with submatch
+                        sub_match_dict = {**kwargs, **self.default_kwargs}
+                        # Update the sub_match_dict with the kwargs from the sub_match.
+                        sub_match_dict.update(sub_match.kwargs)
+                        # If there are *any* named groups, ignore all non-named groups.
+                        # Otherwise, pass all non-named arguments as positional
+                        # arguments.
+                        sub_match_args = sub_match.args
+                        if not sub_match_dict:
+                            sub_match_args = args + sub_match.args
+                        current_route = (
+                            ""
+                            if isinstance(pattern, URLPattern)
+                            else str(pattern.pattern)
+                        )
+                        self._extend_tried(tried, pattern, sub_match.tried)
+                        return ResolverMatch(
+                            sub_match.func,
+                            sub_match_args,
+                            sub_match_dict,
+                            sub_match.url_name,
+                            [self.app_name] + sub_match.app_names,
+                            [self.namespace] + sub_match.namespaces,
+                            self._join_route(current_route, sub_match.route),
+                            tried,
+                            captured_kwargs=sub_match.captured_kwargs,
+                            extra_kwargs={
+                                **self.default_kwargs,
+                                **sub_match.extra_kwargs,
+                            },
+                        )
+                    tried.append([pattern])
+            raise Resolver404({"tried": tried, "path": new_path})
+&gt;       raise Resolver404({"path": path})
+E       django.urls.exceptions.Resolver404: {'path': 'user-post'}
+
+env1\lib\site-packages\django\urls\resolvers.py:703: Resolver404</failure><system-out>--------------------------------- Captured Log ---------------------------------
+
+--------------------------------- Captured Out ---------------------------------
+
+</system-out><system-err>--------------------------------- Captured Err ---------------------------------
+
+</system-err></testcase></testsuite></testsuites>

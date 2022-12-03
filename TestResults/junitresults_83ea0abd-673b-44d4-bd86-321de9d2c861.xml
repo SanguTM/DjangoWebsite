@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?><testsuites><testsuite name="pytest" errors="0" failures="2" skipped="0" tests="2" time="0.317" timestamp="2022-12-01T20:17:24.097964" hostname="Sangu-PC"><testcase classname="app.tests.test_urls.TestUrls" name="test_about_url_is_resolved" file="app\tests\test_urls.py" line="9" time="0.033"><failure message="NameError: name 'reverse' is not defined">self = &lt;app.tests.test_urls.TestUrls testMethod=test_about_url_is_resolved&gt;
+
+    def test_about_url_is_resolved(self):
+&gt;       url = reverse('website-about')
+E       NameError: name 'reverse' is not defined
+
+app\tests\test_urls.py:11: NameError</failure><system-out>--------------------------------- Captured Log ---------------------------------
+
+--------------------------------- Captured Out ---------------------------------
+
+</system-out><system-err>--------------------------------- Captured Err ---------------------------------
+
+</system-err></testcase><testcase classname="app.tests.test_urls.TestUrls" name="test_home_url_is_resolved" file="app\tests\test_urls.py" line="4" time="0.001"><failure message="NameError: name 'reverse' is not defined">self = &lt;app.tests.test_urls.TestUrls testMethod=test_home_url_is_resolved&gt;
+
+    def test_home_url_is_resolved(self):
+&gt;       url = reverse('website-home')
+E       NameError: name 'reverse' is not defined
+
+app\tests\test_urls.py:6: NameError</failure><system-out>--------------------------------- Captured Log ---------------------------------
+
+--------------------------------- Captured Out ---------------------------------
+
+</system-out><system-err>--------------------------------- Captured Err ---------------------------------
+
+</system-err></testcase></testsuite></testsuites>

@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{ title }} - My Django Application</title>
+    {% load static %}
+    
+	<link rel="stylesheet" type="text/css" href="{% static 'app/content/bootstrap.css'%}">	
+	<link rel="stylesheet" type="text/css" href="{% static 'app/content/site.css' %}" />
+	<link rel="stylesheet" type="text/css" href="{% static 'app/content/mystyle.css'%}">
+
+	<link rel="icon" type="image/png" href="{% static 'app/images/Cat.jpg' %}">
+    <script src="{% static 'app/scripts/modernizr-2.6.2.js' %}"></script>
+</head>
+<body>
+	<header id="header" class="blog-header py-3">
+		<div class="row flex-nowrap justify-content-between align-items-center">
+		<h1 class="t2">Kačių įvairovovė</h1>
+		</div>
+		<div id="subhead" class="t2" >Naujienos apie kates iš viso pasaulio</div>
+	</header>
+		<div class="navbar navbar-inverse navbar-fixed-top">
+        <div class="container">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+            </div>
+            <div class="navbar-collapse collapse">
+		        <ul class="nav navbar-nav">
+					<li class="nav-item"><a href="{% url 'website-home' %}">Pagrindinis</a></li>
+					<li class="nav-item"><a href="{% url 'website-about' %}">Apie</a></li>
+					<li class="nav-item"><a href="{% url 'website-galery' %}">Galerija</a></li>
+					<li class="nav-item"><a href="{% url 'website-prenumerate' %}">Prenumeruoti</a></li>
+					{% if user.is_authenticated %}
+						<li class="nav-item"><a href="{% url 'profile' %}">Nustatymai</a></li>
+						<li class="nav-item"><a href="{% url 'logout' %}">Atsijungti</a></li>
+					{% else %}
+						<li class="nav-item"><a href="{% url 'login' %}">Prisijungti</a></li>
+						<li class="nav-item"><a href="{% url 'register' %}">Registruotis</a></li>
+					{% endif %}
+                </ul>
+            </div>
+        </div>
+    </div>
+	<main role="main" class="container">
+		<div class="container body-content">
+			<div class="row">
+				<div class="col-2 notshow">
+					<p class="t1"><big>Vieta jūsų reklamai</big></p>
+				</div>
+				<div class="col-8">
+					{% if messages %}
+						{% for message in messages %}
+						<div class="alert alert-{{ message.tags }}"> 
+							{{ message }}
+						</div>
+						{% endfor %}
+					{% endif %}
+					{% block content %}{% endblock %}
+				</div>
+				<div class="col-2 notshow">
+					<div class="content-section">
+						<h3>Naujienos</h3>
+						<p class='text-muted'>
+							<ul class="list-group">
+								<li class="list-group-item list-group-item-light">Latest Posts</li>
+								<li class="list-group-item list-group-item-light">Announcements</li>
+								<li class="list-group-item list-group-item-light">Calendars</li>
+								<li class="list-group-item list-group-item-light">etc</li>
+							</ul>
+						</p>
+					</div>
+				</div>
+			</div>
+		</div>
+    </main>
+
+
+
+	<div class="col-12" id="footer">
+		<address>2022 &copy; Linas Jurevičius</address>
+	</div>
+	<div>
+		<!-- ciklas per views dictionary
+		{% for post in posts %}
+			<h1>{{ post.title }}</h1>
+			<p>{{ post.author }}</p>
+			<p>{{ post.content }}</p>
+			<p>{{ post.data }}</p>
+		{% endfor %}
+			-->
+		
+		<div id="modal01" class="w3-modal" onclick="this.style.display='none'">
+			<div class="w3-modal-content">
+				<img id="img01" style="width:100%">
+			</div>
+		</div>
+		
+		<script>
+			function onClick(element) {
+			document.getElementById("img01").src = element.src;
+			document.getElementById("modal01").style.display = "block";
+			}
+		</script>
+	</div>
+
+    <script src="{% static 'app/scripts/jquery-1.10.2.js' %}"></script>
+    <script src="{% static 'app/scripts/bootstrap.js' %}"></script>
+    <script src="{% static 'app/scripts/respond.js' %}"></script>
+	{% block scripts %}{% endblock %}
+</body>
+</html>

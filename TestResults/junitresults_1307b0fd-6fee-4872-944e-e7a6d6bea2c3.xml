@@ -1,0 +1,147 @@
+<?xml version="1.0" encoding="utf-8"?><testsuites><testsuite name="pytest" errors="0" failures="2" skipped="0" tests="16" time="0.564" timestamp="2022-12-02T00:03:52.376025" hostname="Sangu-PC"><testcase classname="app.tests.test_urls.TestUrls" name="test_about_url_is_resolved" file="app\tests\test_urls.py" line="13" time="0.012"><system-out>--------------------------------- Captured Log ---------------------------------
+
+--------------------------------- Captured Out ---------------------------------
+ResolverMatch(func=app.views.about, args=(), kwargs={}, url_name='website-about', app_names=[], namespaces=[], route='about/')
+
+</system-out><system-err>--------------------------------- Captured Err ---------------------------------
+
+</system-err></testcase><testcase classname="app.tests.test_urls.TestUrls" name="test_create_url_is_resolved" file="app\tests\test_urls.py" line="36" time="0.001"><system-out>--------------------------------- Captured Log ---------------------------------
+
+--------------------------------- Captured Out ---------------------------------
+ResolverMatch(func=app.views.PostCreateView, args=(), kwargs={}, url_name='post-create', app_names=[], namespaces=[], route='post/new/')
+
+</system-out><system-err>--------------------------------- Captured Err ---------------------------------
+
+</system-err></testcase><testcase classname="app.tests.test_urls.TestUrls" name="test_delete_url_is_resolved" file="app\tests\test_urls.py" line="46" time="0.001"><system-out>--------------------------------- Captured Log ---------------------------------
+
+--------------------------------- Captured Out ---------------------------------
+ResolverMatch(func=app.views.PostDeleteView, args=(), kwargs={'pk': 1}, url_name='post-delete', app_names=[], namespaces=[], route='post/&lt;int:pk&gt;/delete/', captured_kwargs={'pk': 1})
+
+</system-out><system-err>--------------------------------- Captured Err ---------------------------------
+
+</system-err></testcase><testcase classname="app.tests.test_urls.TestUrls" name="test_details_url_is_resolved" file="app\tests\test_urls.py" line="31" time="0.001"><system-out>--------------------------------- Captured Log ---------------------------------
+
+--------------------------------- Captured Out ---------------------------------
+ResolverMatch(func=app.views.PostDetailView, args=(), kwargs={'pk': 1}, url_name='post-detail', app_names=[], namespaces=[], route='post/&lt;int:pk&gt;/', captured_kwargs={'pk': 1})
+
+</system-out><system-err>--------------------------------- Captured Err ---------------------------------
+
+</system-err></testcase><testcase classname="app.tests.test_urls.TestUrls" name="test_galery_url_is_resolved" file="app\tests\test_urls.py" line="21" time="0.001"><system-out>--------------------------------- Captured Log ---------------------------------
+
+--------------------------------- Captured Out ---------------------------------
+ResolverMatch(func=app.views.galery, args=(), kwargs={}, url_name='website-galery', app_names=[], namespaces=[], route='galery/')
+
+</system-out><system-err>--------------------------------- Captured Err ---------------------------------
+
+</system-err></testcase><testcase classname="app.tests.test_urls.TestUrls" name="test_home_url_is_resolved" file="app\tests\test_urls.py" line="8" time="0.001"><system-out>--------------------------------- Captured Log ---------------------------------
+
+--------------------------------- Captured Out ---------------------------------
+ResolverMatch(func=app.views.PostListView, args=(), kwargs={}, url_name='website-home', app_names=[], namespaces=[], route='')
+
+</system-out><system-err>--------------------------------- Captured Err ---------------------------------
+
+</system-err></testcase><testcase classname="app.tests.test_urls.TestUrls" name="test_login_url_is_resolved" file="app\tests\test_urls.py" line="66" time="0.001"><system-out>--------------------------------- Captured Log ---------------------------------
+
+--------------------------------- Captured Out ---------------------------------
+ResolverMatch(func=django.contrib.auth.views.LoginView, args=(), kwargs={}, url_name='login', app_names=[], namespaces=[], route='login/')
+
+</system-out><system-err>--------------------------------- Captured Err ---------------------------------
+
+</system-err></testcase><testcase classname="app.tests.test_urls.TestUrls" name="test_logout_url_is_resolved" file="app\tests\test_urls.py" line="71" time="0.001"><system-out>--------------------------------- Captured Log ---------------------------------
+
+--------------------------------- Captured Out ---------------------------------
+ResolverMatch(func=django.contrib.auth.views.LogoutView, args=(), kwargs={}, url_name='logout', app_names=[], namespaces=[], route='logout/')
+
+</system-out><system-err>--------------------------------- Captured Err ---------------------------------
+
+</system-err></testcase><testcase classname="app.tests.test_urls.TestUrls" name="test_passwordreset_url_is_resolved" file="app\tests\test_urls.py" line="76" time="0.001"><system-out>--------------------------------- Captured Log ---------------------------------
+
+--------------------------------- Captured Out ---------------------------------
+ResolverMatch(func=django.contrib.auth.views.PasswordResetView, args=(), kwargs={}, url_name='password-reset', app_names=[], namespaces=[], route='password-reset/')
+
+</system-out><system-err>--------------------------------- Captured Err ---------------------------------
+
+</system-err></testcase><testcase classname="app.tests.test_urls.TestUrls" name="test_prenumerate_url_is_resolved" file="app\tests\test_urls.py" line="26" time="0.001"><system-out>--------------------------------- Captured Log ---------------------------------
+
+--------------------------------- Captured Out ---------------------------------
+ResolverMatch(func=app.views.prenumerate, args=(), kwargs={}, url_name='website-prenumerate', app_names=[], namespaces=[], route='prenumerate/')
+
+</system-out><system-err>--------------------------------- Captured Err ---------------------------------
+
+</system-err></testcase><testcase classname="app.tests.test_urls.TestUrls" name="test_profile_url_is_resolved" file="app\tests\test_urls.py" line="61" time="0.001"><system-out>--------------------------------- Captured Log ---------------------------------
+
+--------------------------------- Captured Out ---------------------------------
+ResolverMatch(func=Users.views.profile, args=(), kwargs={}, url_name='profile', app_names=[], namespaces=[], route='profile/')
+
+</system-out><system-err>--------------------------------- Captured Err ---------------------------------
+
+</system-err></testcase><testcase classname="app.tests.test_urls.TestUrls" name="test_register_url_is_resolved" file="app\tests\test_urls.py" line="56" time="0.001"><system-out>--------------------------------- Captured Log ---------------------------------
+
+--------------------------------- Captured Out ---------------------------------
+ResolverMatch(func=Users.views.register, args=(), kwargs={}, url_name='register', app_names=[], namespaces=[], route='register/')
+
+</system-out><system-err>--------------------------------- Captured Err ---------------------------------
+
+</system-err></testcase><testcase classname="app.tests.test_urls.TestUrls" name="test_update_url_is_resolved" file="app\tests\test_urls.py" line="41" time="0.001"><system-out>--------------------------------- Captured Log ---------------------------------
+
+--------------------------------- Captured Out ---------------------------------
+ResolverMatch(func=app.views.PostUpdateView, args=(), kwargs={'pk': 1}, url_name='post-update', app_names=[], namespaces=[], route='post/&lt;int:pk&gt;/update/', captured_kwargs={'pk': 1})
+
+</system-out><system-err>--------------------------------- Captured Err ---------------------------------
+
+</system-err></testcase><testcase classname="app.tests.test_urls.TestUrls" name="test_userposts_url_is_resolved" file="app\tests\test_urls.py" line="51" time="0.001"><system-out>--------------------------------- Captured Log ---------------------------------
+
+--------------------------------- Captured Out ---------------------------------
+ResolverMatch(func=app.views.UserPostListView, args=(), kwargs={'username': '1'}, url_name='user-posts', app_names=[], namespaces=[], route='_user/&lt;str:username&gt;', captured_kwargs={'username': '1'})
+
+</system-out><system-err>--------------------------------- Captured Err ---------------------------------
+
+</system-err></testcase><testcase classname="app.tests.test_views.TestView" name="test_project_home_GET" file="app\tests\test_views.py" line="24" time="0.046"><failure message="AssertionError: No templates used to render the response">self = &lt;app.tests.test_views.TestView testMethod=test_project_home_GET&gt;
+
+    def test_project_home_GET(self):
+        client = Client()
+        response = self.client.get(self.home_url)
+    
+        self.assertEquals(response.status_code, 200)
+        #self.client.login(username='Sangu', password='123')
+        print(response.__dict__)
+&gt;       self.assertTemplateUsed(response, 'app/index.html')
+
+app\tests\test_views.py:32: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+env1\lib\site-packages\django\test\testcases.py:849: in assertTemplateUsed
+    self._assert_template_used(template_name, template_names, msg_prefix, count)
+env1\lib\site-packages\django\test\testcases.py:813: in _assert_template_used
+    self.fail(msg_prefix + "No templates used to render the response")
+E   AssertionError: No templates used to render the response</failure><system-out>--------------------------------- Captured Log ---------------------------------
+
+--------------------------------- Captured Out ---------------------------------
+{'template_name': ['app/index.html', 'app/post_list.html'], 'context_data': {'paginator': &lt;django.core.paginator.Paginator object at 0x0000023777B9C850&gt;, 'page_obj': &lt;Page 1 of 2&gt;, 'is_paginated': True, 'object_list': &lt;QuerySet [&lt;Post: post1&gt;, &lt;Post: Naujas ąčęęė&gt;, &lt;Post: Naujaas&gt;]&gt;, 'posts': &lt;QuerySet [&lt;Post: post1&gt;, &lt;Post: Naujas ąčęęė&gt;, &lt;Post: Naujaas&gt;]&gt;, 'view': &lt;app.views.PostListView object at 0x0000023777B9CC10&gt;}, 'using': None, '_post_render_callbacks': [], '_request': &lt;WSGIRequest: GET '/'&gt;, 'headers': {'Content-Type': 'text/html; charset=utf-8', 'X-Frame-Options': 'DENY', 'Content-Length': '6481', 'Vary': 'Cookie', 'X-Content-Type-Options': 'nosniff', 'Referrer-Policy': 'same-origin', 'Cross-Origin-Opener-Policy': 'same-origin'}, '_charset': None, '_resource_closers': [], '_handler_class': None, 'cookies': &lt;SimpleCookie: &gt;, 'closed': True, '_reason_phrase': None, '_container': [b'&lt;!DOCTYPE html&gt;\n&lt;html&gt;\n&lt;head&gt;\n    &lt;meta charset="utf-8" /&gt;\n    &lt;meta name="viewport" content="width=device-width, initial-scale=1.0"&gt;\n    &lt;title&gt; - My Django Application&lt;/title&gt;\n    \n    \n\t&lt;link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous"&gt;\n\t&lt;link rel="stylesheet" type="text/css" href="/static/app/content/mystyle.css"&gt;\n\t&lt;link rel="stylesheet" type="text/css" href="/static/app/content/main.css"&gt;\n\n\t&lt;link rel="icon" type="image/png" href="/static/app/images/Cat.jpg"&gt;\n    &lt;script src="/static/app/scripts/modernizr-2.6.2.js"&gt;&lt;/script&gt;\n&lt;/head&gt;\n&lt;body&gt;\n&lt;nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark"&gt;\n  &lt;div class="container-fluid"&gt;\n    &lt;button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation"&gt;\n      &lt;span class="navbar-toggler-icon"&gt;&lt;/span&gt;\n    &lt;/button&gt;\n    &lt;div class="collapse navbar-collapse" id="navbarCollapse"&gt;\n      &lt;ul class="navbar-nav me-auto mb-2 mb-md-0"&gt;\n\t\t&lt;li class="nav-item"&gt;&lt;a class="nav-link green" href="/"&gt;Pagrindinis&lt;/a&gt;&lt;/li&gt;\n\t\t&lt;li class="nav-item"&gt;&lt;a class="nav-link green" href="/galery/"&gt;Galerija&lt;/a&gt;&lt;/li&gt;\n\t\t&lt;li class="nav-item"&gt;&lt;a class="nav-link green" href="/prenumerate/"&gt;Prenumeruoti&lt;/a&gt;&lt;/li&gt;\n\t\t&lt;li class="nav-item"&gt;&lt;a class="nav-link green" href="/about/"&gt;Apie&lt;/a&gt;&lt;/li&gt;\n\n\t\t\n\t\t\t&lt;li class="nav-item"&gt;&lt;a class="nav-link green" href="/login/"&gt;Prisijungti&lt;/a&gt;&lt;/li&gt;\n\t\t\t&lt;li class="nav-item"&gt;&lt;a class="nav-link green" href="/register/"&gt;Registruotis&lt;/a&gt;&lt;/li&gt;\n\t\t\n      &lt;/ul&gt;\n    &lt;/div&gt;\n  &lt;/div&gt;\n&lt;/nav&gt;\n&lt;header class="masthead"&gt;\n  &lt;div class="container h-100"&gt;\n    &lt;div class="row h-100 align-items-center"&gt;\n      &lt;div class="col-12 text-center"&gt;\n        &lt;h1 class="fw-light"&gt;Ka\xc4\x8di\xc5\xb3 \xc4\xafvairovov\xc4\x97&lt;/h1&gt;\n        &lt;p class="lead"&gt;Naujienos apie kates i\xc5\xa1 viso pasaulio&lt;/p&gt;\n      &lt;/div&gt;\n    &lt;/div&gt;\n  &lt;/div&gt;\n&lt;/header&gt;\n\t &lt;main role="main" class="container"&gt;\n      &lt;div class="row"&gt;\n        &lt;div class="col notshow notshow-m pt-3"&gt;\n          &lt;div class="content-section"&gt;\n            &lt;h6&gt;Vieta j\xc5\xabs\xc5\xb3 reklamai&lt;/h6&gt;\n          &lt;/div&gt;\n        &lt;/div&gt;\n        &lt;div class="col-md-8 pt-3"&gt;\n          \n          \n        \n\t\t\n\t    \n        &lt;article class="media content-section"&gt;\n\t\t&lt;img class="rounded-circle article-img" Id="leftside" src="/media/default.jpg"&gt;\n          &lt;div class="media-body"&gt;\n            &lt;div class="article-metadata"&gt;\n              &lt;a class="mr-2" href="/_user/123"&gt;123&lt;/a&gt;\n              &lt;small class="text-muted"&gt;2022 December 01&lt;/small&gt;\n            &lt;/div&gt;\n            &lt;h2&gt;&lt;a class="article-title" href="/post/7/"&gt;post1&lt;/a&gt;&lt;/h2&gt;\n            &lt;p class="article-conten img3"&gt;random post&lt;/p&gt;\n\t\t\t&lt;hr&gt;\n          &lt;/div&gt;\n        &lt;/article&gt;\n    \n        &lt;article class="media content-section"&gt;\n\t\t&lt;img class="rounded-circle article-img" Id="leftside" src="/media/default.jpg"&gt;\n          &lt;div class="media-body"&gt;\n            &lt;div class="article-metadata"&gt;\n              &lt;a class="mr-2" href="/_user/Linas"&gt;Linas&lt;/a&gt;\n              &lt;small class="text-muted"&gt;2022 November 26&lt;/small&gt;\n            &lt;/div&gt;\n            &lt;h2&gt;&lt;a class="article-title" href="/post/6/"&gt;Naujas \xc4\x85\xc4\x8d\xc4\x99\xc4\x99\xc4\x97&lt;/a&gt;&lt;/h2&gt;\n            &lt;p class="article-conten img3"&gt;&lt;p&gt;Nmnmkjjkkjkmnmn d efds&lt;/p&gt;&lt;/p&gt;\n\t\t\t&lt;hr&gt;\n          &lt;/div&gt;\n        &lt;/article&gt;\n    \n        &lt;article class="media content-section"&gt;\n\t\t&lt;img class="rounded-circle article-img" Id="leftside" src="/media/profile_pics/Pinkpanther11_hTejHO8.JPG"&gt;\n          &lt;div class="media-body"&gt;\n            &lt;div class="article-metadata"&gt;\n              &lt;a class="mr-2" href="/_user/Sangu"&gt;Sangu&lt;/a&gt;\n              &lt;small class="text-muted"&gt;2022 November 26&lt;/small&gt;\n            &lt;/div&gt;\n            &lt;h2&gt;&lt;a class="article-title" href="/post/4/"&gt;Naujaas&lt;/a&gt;&lt;/h2&gt;\n            &lt;p class="article-conten img3"&gt;&lt;p&gt;&lt;strong&gt;jkkjkj&lt;img alt="frown" src="http://localhost:58471/static/ckeditor/ckeditor/plugins/smiley/images/confused_smile.png" style="height:23px; width:23px" title="frown" /&gt;&lt;/strong&gt;&lt;/p&gt;&lt;/p&gt;\n\t\t\t&lt;hr&gt;\n          &lt;/div&gt;\n        &lt;/article&gt;\n    \n    \n\n      \n\n      \n        \n          &lt;a class="btn btn-info mb-4 mar-b blue" href="?page=1"&gt;1&lt;/a&gt;\n        \n      \n        \n          &lt;a class="btn btn-outline-info mb-4 mar-b blue" href="?page=2"&gt;2&lt;/a&gt;\n        \n      \n\n      \n        &lt;a class="btn btn-outline-info mb-4 mar-b blue" href="?page=2"&gt;Kitas&lt;/a&gt;\n        &lt;a class="btn btn-outline-info mb-4 mar-b blue" href="?page=2"&gt;Paskutinis&lt;/a&gt;\n      \n\n    \n\n        &lt;/div&gt;\n        &lt;div class="col notshow notshow-r pt-3"&gt;\n          &lt;div class="content-section"&gt;\n            &lt;h3&gt;Informacija&lt;/h3&gt;\n              &lt;ul class="list-group"&gt;\n                &lt;li class="list-group-item list-group-item-light"&gt;Latest Posts&lt;/li&gt;\n                &lt;li class="list-group-item list-group-item-light"&gt;Announcements&lt;/li&gt;\n                &lt;li class="list-group-item list-group-item-light"&gt;Calendars&lt;/li&gt;\n                &lt;li class="list-group-item list-group-item-light"&gt;etc&lt;/li&gt;\n              &lt;/ul&gt;\n          &lt;/div&gt;\n        &lt;/div&gt;\n      &lt;/div&gt;\n    &lt;/main&gt;\n\n\n  &lt;footer id="sticky-footer" class="flex-shrink-0 py-4"&gt;\n    &lt;div class="container text-center"&gt;\n      &lt;address&gt;2022 &amp;copy; Linas Jurevi\xc4\x8dius&lt;/address&gt;\n    &lt;/div&gt;\n  &lt;/footer&gt;\n\n\t&lt;div&gt;\n\t\t&lt;!-- ciklas per views dictionary\n\t\t\n\t\t\t&lt;h1&gt;post1&lt;/h1&gt;\n\t\t\t&lt;p&gt;123&lt;/p&gt;\n\t\t\t&lt;p&gt;random post&lt;/p&gt;\n\t\t\t&lt;p&gt;&lt;/p&gt;\n\t\t\n\t\t\t&lt;h1&gt;Naujas \xc4\x85\xc4\x8d\xc4\x99\xc4\x99\xc4\x97&lt;/h1&gt;\n\t\t\t&lt;p&gt;Linas&lt;/p&gt;\n\t\t\t&lt;p&gt;&amp;lt;p&amp;gt;Nmnmkjjkkjkmnmn d efds&amp;lt;/p&amp;gt;&lt;/p&gt;\n\t\t\t&lt;p&gt;&lt;/p&gt;\n\t\t\n\t\t\t&lt;h1&gt;Naujaas&lt;/h1&gt;\n\t\t\t&lt;p&gt;Sangu&lt;/p&gt;\n\t\t\t&lt;p&gt;&amp;lt;p&amp;gt;&amp;lt;strong&amp;gt;jkkjkj&amp;lt;img alt=&amp;quot;frown&amp;quot; src=&amp;quot;http://localhost:58471/static/ckeditor/ckeditor/plugins/smiley/images/confused_smile.png&amp;quot; style=&amp;quot;height:23px; width:23px&amp;quot; title=&amp;quot;frown&amp;quot; /&amp;gt;&amp;lt;/strong&amp;gt;&amp;lt;/p&amp;gt;&lt;/p&gt;\n\t\t\t&lt;p&gt;&lt;/p&gt;\n\t\t\n\t\t\t--&gt;\n\t\t\n\t\t&lt;div id="modal01" class="w3-modal" onclick="this.style.display=\'none\'"&gt;\n\t\t\t&lt;div class="w3-modal-content"&gt;\n\t\t\t\t&lt;img id="img01" style="width:100%"&gt;\n\t\t\t&lt;/div&gt;\n\t\t&lt;/div&gt;\n\t\t\n\t\t&lt;script&gt;\n\t\t\tfunction onClick(element) {\n\t\t\tdocument.getElementById("img01").src = element.src;\n\t\t\tdocument.getElementById("modal01").style.display = "block";\n\t\t\t}\n\t\t&lt;/script&gt;\n\t&lt;/div&gt;\n\n\t&lt;script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"&gt;&lt;/script&gt;\n\n\t\n&lt;/body&gt;\n&lt;/html&gt;\n'], '_is_rendered': True, 'wsgi_request': &lt;WSGIRequest: GET '/'&gt;, 'exc_info': None, 'client': &lt;django.test.client.Client object at 0x0000023777A541F0&gt;, 'request': {'PATH_INFO': '/', 'REQUEST_METHOD': 'GET', 'SERVER_PORT': '80', 'wsgi.url_scheme': 'http', 'QUERY_STRING': ''}, 'templates': [], 'context': None, 'json': functools.partial(&lt;bound method ClientMixin._parse_json of &lt;django.test.client.Client object at 0x0000023777A541F0&gt;&gt;, &lt;TemplateResponse status_code=200, "text/html; charset=utf-8"&gt;), 'resolver_match': &lt;SimpleLazyObject: &lt;function Client.request.&lt;locals&gt;.&lt;lambda&gt; at 0x0000023777AC9310&gt;&gt;}
+
+</system-out><system-err>--------------------------------- Captured Err ---------------------------------
+
+</system-err></testcase><testcase classname="app.tests.test_views.TestView" name="test_project_postdetail_GET" file="app\tests\test_views.py" line="33" time="0.008"><failure message="AssertionError: No templates used to render the response">self = &lt;app.tests.test_views.TestView testMethod=test_project_postdetail_GET&gt;
+
+    def test_project_postdetail_GET(self):
+        client = Client()
+        response = self.client.get(self.detail_url)
+    
+        self.assertEquals(response.status_code, 200)
+        #self.client.login(username='Sangu', password='123')
+        print(response.template_name)
+&gt;       self.assertTemplateUsed(response, 'app/post_detail.html')
+
+app\tests\test_views.py:41: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+env1\lib\site-packages\django\test\testcases.py:849: in assertTemplateUsed
+    self._assert_template_used(template_name, template_names, msg_prefix, count)
+env1\lib\site-packages\django\test\testcases.py:813: in _assert_template_used
+    self.fail(msg_prefix + "No templates used to render the response")
+E   AssertionError: No templates used to render the response</failure><system-out>--------------------------------- Captured Log ---------------------------------
+
+--------------------------------- Captured Out ---------------------------------
+['app/post_detail.html']
+
+</system-out><system-err>--------------------------------- Captured Err ---------------------------------
+
+</system-err></testcase></testsuite></testsuites>

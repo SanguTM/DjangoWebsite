@@ -1,0 +1,200 @@
+<?xml version="1.0" encoding="utf-8"?><testsuites><testsuite name="pytest" errors="0" failures="1" skipped="0" tests="11" time="0.432" timestamp="2022-12-01T21:13:37.231380" hostname="Sangu-PC"><testcase classname="app.tests.test_urls.TestUrls" name="test_about_url_is_resolved" file="app\tests\test_urls.py" line="12" time="0.011"><system-out>--------------------------------- Captured Log ---------------------------------
+
+--------------------------------- Captured Out ---------------------------------
+ResolverMatch(func=app.views.about, args=(), kwargs={}, url_name='website-about', app_names=[], namespaces=[], route='about/')
+
+</system-out><system-err>--------------------------------- Captured Err ---------------------------------
+
+</system-err></testcase><testcase classname="app.tests.test_urls.TestUrls" name="test_create_url_is_resolved" file="app\tests\test_urls.py" line="35" time="0.001"><system-out>--------------------------------- Captured Log ---------------------------------
+
+--------------------------------- Captured Out ---------------------------------
+ResolverMatch(func=app.views.PostCreateView, args=(), kwargs={}, url_name='post-create', app_names=[], namespaces=[], route='post/new/')
+
+</system-out><system-err>--------------------------------- Captured Err ---------------------------------
+
+</system-err></testcase><testcase classname="app.tests.test_urls.TestUrls" name="test_delete_url_is_resolved" file="app\tests\test_urls.py" line="45" time="0.001"><system-out>--------------------------------- Captured Log ---------------------------------
+
+--------------------------------- Captured Out ---------------------------------
+ResolverMatch(func=app.views.PostDeleteView, args=(), kwargs={'pk': 1}, url_name='post-delete', app_names=[], namespaces=[], route='post/&lt;int:pk&gt;/delete/', captured_kwargs={'pk': 1})
+
+</system-out><system-err>--------------------------------- Captured Err ---------------------------------
+
+</system-err></testcase><testcase classname="app.tests.test_urls.TestUrls" name="test_details_url_is_resolved" file="app\tests\test_urls.py" line="30" time="0.001"><system-out>--------------------------------- Captured Log ---------------------------------
+
+--------------------------------- Captured Out ---------------------------------
+ResolverMatch(func=app.views.PostDetailView, args=(), kwargs={'pk': 1}, url_name='post-detail', app_names=[], namespaces=[], route='post/&lt;int:pk&gt;/', captured_kwargs={'pk': 1})
+
+</system-out><system-err>--------------------------------- Captured Err ---------------------------------
+
+</system-err></testcase><testcase classname="app.tests.test_urls.TestUrls" name="test_galery_url_is_resolved" file="app\tests\test_urls.py" line="20" time="0.001"><system-out>--------------------------------- Captured Log ---------------------------------
+
+--------------------------------- Captured Out ---------------------------------
+ResolverMatch(func=app.views.galery, args=(), kwargs={}, url_name='website-galery', app_names=[], namespaces=[], route='galery/')
+
+</system-out><system-err>--------------------------------- Captured Err ---------------------------------
+
+</system-err></testcase><testcase classname="app.tests.test_urls.TestUrls" name="test_home_url_is_resolved" file="app\tests\test_urls.py" line="7" time="0.001"><system-out>--------------------------------- Captured Log ---------------------------------
+
+--------------------------------- Captured Out ---------------------------------
+ResolverMatch(func=app.views.PostListView, args=(), kwargs={}, url_name='website-home', app_names=[], namespaces=[], route='')
+
+</system-out><system-err>--------------------------------- Captured Err ---------------------------------
+
+</system-err></testcase><testcase classname="app.tests.test_urls.TestUrls" name="test_prenumerate_url_is_resolved" file="app\tests\test_urls.py" line="25" time="0.001"><system-out>--------------------------------- Captured Log ---------------------------------
+
+--------------------------------- Captured Out ---------------------------------
+ResolverMatch(func=app.views.prenumerate, args=(), kwargs={}, url_name='website-prenumerate', app_names=[], namespaces=[], route='prenumerate/')
+
+</system-out><system-err>--------------------------------- Captured Err ---------------------------------
+
+</system-err></testcase><testcase classname="app.tests.test_urls.TestUrls" name="test_profile_url_is_resolved" file="app\tests\test_urls.py" line="60" time="0.001"><system-out>--------------------------------- Captured Log ---------------------------------
+
+--------------------------------- Captured Out ---------------------------------
+ResolverMatch(func=Users.views.profile, args=(), kwargs={}, url_name='profile', app_names=[], namespaces=[], route='profile/')
+
+</system-out><system-err>--------------------------------- Captured Err ---------------------------------
+
+</system-err></testcase><testcase classname="app.tests.test_urls.TestUrls" name="test_register_url_is_resolved" file="app\tests\test_urls.py" line="55" time="0.001"><system-out>--------------------------------- Captured Log ---------------------------------
+
+--------------------------------- Captured Out ---------------------------------
+ResolverMatch(func=Users.views.register, args=(), kwargs={}, url_name='register', app_names=[], namespaces=[], route='register/')
+
+</system-out><system-err>--------------------------------- Captured Err ---------------------------------
+
+</system-err></testcase><testcase classname="app.tests.test_urls.TestUrls" name="test_update_url_is_resolved" file="app\tests\test_urls.py" line="40" time="0.001"><system-out>--------------------------------- Captured Log ---------------------------------
+
+--------------------------------- Captured Out ---------------------------------
+ResolverMatch(func=app.views.PostUpdateView, args=(), kwargs={'pk': 1}, url_name='post-update', app_names=[], namespaces=[], route='post/&lt;int:pk&gt;/update/', captured_kwargs={'pk': 1})
+
+</system-out><system-err>--------------------------------- Captured Err ---------------------------------
+
+</system-err></testcase><testcase classname="app.tests.test_urls.TestUrls" name="test_userposts_url_is_resolved" file="app\tests\test_urls.py" line="50" time="0.001"><failure message="django.urls.exceptions.NoReverseMatch: 'Posts' is not a registered namespace">viewname = 'Posts:user-posts', urlconf = None, args = 'linas', kwargs = {}
+current_app = None
+
+    def reverse(viewname, urlconf=None, args=None, kwargs=None, current_app=None):
+        if urlconf is None:
+            urlconf = get_urlconf()
+        resolver = get_resolver(urlconf)
+        args = args or []
+        kwargs = kwargs or {}
+    
+        prefix = get_script_prefix()
+    
+        if not isinstance(viewname, str):
+            view = viewname
+        else:
+            *path, view = viewname.split(":")
+    
+            if current_app:
+                current_path = current_app.split(":")
+                current_path.reverse()
+            else:
+                current_path = None
+    
+            resolved_path = []
+            ns_pattern = ""
+            ns_converters = {}
+            for ns in path:
+                current_ns = current_path.pop() if current_path else None
+                # Lookup the name to see if it could be an app identifier.
+                try:
+                    app_list = resolver.app_dict[ns]
+                    # Yes! Path part matches an app in the current Resolver.
+                    if current_ns and current_ns in app_list:
+                        # If we are reversing for a particular app, use that
+                        # namespace.
+                        ns = current_ns
+                    elif ns not in app_list:
+                        # The name isn't shared by one of the instances (i.e.,
+                        # the default) so pick the first instance as the default.
+                        ns = app_list[0]
+                except KeyError:
+                    pass
+    
+                if ns != current_ns:
+                    current_path = None
+    
+                try:
+&gt;                   extra, resolver = resolver.namespace_dict[ns]
+E                   KeyError: 'Posts'
+
+env1\lib\site-packages\django\urls\base.py:71: KeyError
+
+During handling of the above exception, another exception occurred:
+
+self = &lt;app.tests.test_urls.TestUrls testMethod=test_userposts_url_is_resolved&gt;
+
+    def test_userposts_url_is_resolved(self):
+&gt;       url = reverse('Posts:user-posts', args='linas')
+
+app\tests\test_urls.py:52: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+
+viewname = 'Posts:user-posts', urlconf = None, args = 'linas', kwargs = {}
+current_app = None
+
+    def reverse(viewname, urlconf=None, args=None, kwargs=None, current_app=None):
+        if urlconf is None:
+            urlconf = get_urlconf()
+        resolver = get_resolver(urlconf)
+        args = args or []
+        kwargs = kwargs or {}
+    
+        prefix = get_script_prefix()
+    
+        if not isinstance(viewname, str):
+            view = viewname
+        else:
+            *path, view = viewname.split(":")
+    
+            if current_app:
+                current_path = current_app.split(":")
+                current_path.reverse()
+            else:
+                current_path = None
+    
+            resolved_path = []
+            ns_pattern = ""
+            ns_converters = {}
+            for ns in path:
+                current_ns = current_path.pop() if current_path else None
+                # Lookup the name to see if it could be an app identifier.
+                try:
+                    app_list = resolver.app_dict[ns]
+                    # Yes! Path part matches an app in the current Resolver.
+                    if current_ns and current_ns in app_list:
+                        # If we are reversing for a particular app, use that
+                        # namespace.
+                        ns = current_ns
+                    elif ns not in app_list:
+                        # The name isn't shared by one of the instances (i.e.,
+                        # the default) so pick the first instance as the default.
+                        ns = app_list[0]
+                except KeyError:
+                    pass
+    
+                if ns != current_ns:
+                    current_path = None
+    
+                try:
+                    extra, resolver = resolver.namespace_dict[ns]
+                    resolved_path.append(ns)
+                    ns_pattern = ns_pattern + extra
+                    ns_converters.update(resolver.pattern.converters)
+                except KeyError as key:
+                    if resolved_path:
+                        raise NoReverseMatch(
+                            "%s is not a registered namespace inside '%s'"
+                            % (key, ":".join(resolved_path))
+                        )
+                    else:
+&gt;                       raise NoReverseMatch("%s is not a registered namespace" % key)
+E                       django.urls.exceptions.NoReverseMatch: 'Posts' is not a registered namespace
+
+env1\lib\site-packages\django\urls\base.py:82: NoReverseMatch</failure><system-out>--------------------------------- Captured Log ---------------------------------
+
+--------------------------------- Captured Out ---------------------------------
+
+</system-out><system-err>--------------------------------- Captured Err ---------------------------------
+
+</system-err></testcase></testsuite></testsuites>

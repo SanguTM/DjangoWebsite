@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?><testsuites><testsuite name="pytest" errors="0" failures="0" skipped="0" tests="1" time="0.240" timestamp="2022-12-01T12:13:58.049132" hostname="Sangu-PC"><testcase classname="app.tests.test_urls.TestUrls" name="test_list_url_is_resolved" file="app\tests\test_urls.py" line="4" time="0.204"><system-out>--------------------------------- Captured Log ---------------------------------
+
+--------------------------------- Captured Out ---------------------------------
+
+</system-out><system-err>--------------------------------- Captured Err ---------------------------------
+
+</system-err></testcase></testsuite></testsuites>

@@ -1,0 +1,37 @@
+{% extends "app/base.html" %}
+{% block content %}
+	<h2>Prenumerata:</h2>
+	<p>Sveiki! Jeigu norite gauti pranešimus, kiekvieną kartą man paskelbus naują įrašą, užpildykite žemiau esančią formą:</p>
+	<br>
+	<div id="form">
+	<form action="registracija.php" method="post">
+	<fieldset>
+		<legend>Asmeninė informacija:</legend>
+		<label>Jusu vardas:</label> 
+		<div class="fields"><input type="text" name="vardas" required></div><br>
+		<label>Jusu pavarde:</label> 
+		<div class="fields"><input type="text" name="pavarde"></div><br>
+	</fieldset><br>
+	<fieldset>
+		<legend>Kontaktine informacija</legend>
+		<label>El. pastas:</label> 
+		<div class="fields"><input type="email" name="elpastas" required></div><br>
+		<label>Telefonas:</label>
+		<div class="fields"><input type="tel" name="telefonas"></div><br>
+	</fieldset> <br>
+	<fieldset>
+		<legend>Naujienas norite gauti:</legend>						
+		<label>El. paštu</label><input type="radio" value="p" name="tipas">
+		<label>SMS</label><input type="radio" value="t" name="tipas">
+		<br>
+		<br>
+		<div id="buttons">
+			<input type="submit" value="PATVIRTINI">
+			<input type="reset" value="ATMESTI">
+		</div>
+		<br>
+		<br>
+	</fieldset>
+	</form>	
+	</div>
+{% endblock content %}

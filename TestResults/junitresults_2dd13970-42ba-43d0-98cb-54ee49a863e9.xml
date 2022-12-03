@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?><testsuites><testsuite name="pytest" errors="0" failures="1" skipped="0" tests="1" time="0.356" timestamp="2022-12-01T12:48:45.584332" hostname="Sangu-PC"><testcase classname="app.tests.test_urls.TestUrls" name="test_list_url_is_resolved" file="app\tests\test_urls.py" line="7" time="0.207"><failure message="AssertionError: &lt;function View.as_view.&lt;locals&gt;.view at 0x00000198688DF4C0&gt; != &lt;function View.as_view.&lt;locals&gt;.view at 0x00000198688DF8B0&gt;">self = &lt;app.tests.test_urls.TestUrls testMethod=test_list_url_is_resolved&gt;
+
+    def test_list_url_is_resolved(self):
+        url = reverse('website-home')
+        print(resolve(url))
+&gt;       self.assertEquals(resolve(url).func, PostListView.as_view())
+E       AssertionError: &lt;function View.as_view.&lt;locals&gt;.view at 0x00000198688DF4C0&gt; != &lt;function View.as_view.&lt;locals&gt;.view at 0x00000198688DF8B0&gt;
+
+app\tests\test_urls.py:11: AssertionError</failure><system-out>--------------------------------- Captured Log ---------------------------------
+
+--------------------------------- Captured Out ---------------------------------
+ResolverMatch(func=app.views.PostListView, args=(), kwargs={}, url_name='website-home', app_names=[], namespaces=[], route='')
+
+</system-out><system-err>--------------------------------- Captured Err ---------------------------------
+
+</system-err></testcase></testsuite></testsuites>

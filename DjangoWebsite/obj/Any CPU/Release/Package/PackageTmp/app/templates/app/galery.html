@@ -1,0 +1,18 @@
+{% extends "app/base.html" %}
+{% load static %}
+
+{% block content %}
+<h2>Kačių galerija</h2>
+<table style="width:90%" class="table">
+	<tr>
+		<th class="tbl1"><img src="{% static 'app/images/Cats.jpg' %}" alt="Kate" onclick="onClick(this)" class="img3"></th>
+		<th class="tbl1"><img src="{% static 'app/images/Cats2.jpg' %}" alt="Kate" onclick="onClick(this)" class="img3"></th>
+	</tr>
+	<tr>
+		<th class="tbl1"><img src="{% static 'app/images/Cats3.jpg' %}" alt="Kate" onclick="onClick(this)" class="img3"></th>
+		<th class="tbl1"><img src="{% static 'app/images/Cats4.jpg' %}" alt="Kate" onclick="onClick(this)" class="img3"></th>
+	</tr>
+</table>
+<br>
+<hr>
+{% endblock content %}

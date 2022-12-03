@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="utf-8"?><testsuites><testsuite name="pytest" errors="0" failures="1" skipped="0" tests="1" time="0.365" timestamp="2022-12-01T12:46:54.350820" hostname="Sangu-PC"><testcase classname="app.tests.test_urls.TestUrls" name="test_list_url_is_resolved" file="app\tests\test_urls.py" line="7" time="0.210"><failure message="django.urls.exceptions.Resolver404: {'path': 'url'}">self = &lt;app.tests.test_urls.TestUrls testMethod=test_list_url_is_resolved&gt;
+
+    def test_list_url_is_resolved(self):
+        url = reverse('website-home')
+        print(resolve(url))
+        #self.assertEquals(resolve(url).func, PostListView.as_view())
+        #self.assertEqual(resolve('url').func.view_class, views.PostListView)
+&gt;       self.assertEqual(resolve("url").func.__name__, views.PostListView.__name__)
+
+app\tests\test_urls.py:13: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+env1\lib\site-packages\django\urls\base.py:24: in resolve
+    return get_resolver(urlconf).resolve(path)
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+
+self = &lt;URLResolver 'DjangoWebsite.urls' (None:None) '^/'&gt;, path = 'url'
+
+    def resolve(self, path):
+        path = str(path)  # path may be a reverse_lazy object
+        tried = []
+        match = self.pattern.match(path)
+        if match:
+            new_path, args, kwargs = match
+            for pattern in self.url_patterns:
+                try:
+                    sub_match = pattern.resolve(new_path)
+                except Resolver404 as e:
+                    self._extend_tried(tried, pattern, e.args[0].get("tried"))
+                else:
+                    if sub_match:
+                        # Merge captured arguments in match with submatch
+                        sub_match_dict = {**kwargs, **self.default_kwargs}
+                        # Update the sub_match_dict with the kwargs from the sub_match.
+                        sub_match_dict.update(sub_match.kwargs)
+                        # If there are *any* named groups, ignore all non-named groups.
+                        # Otherwise, pass all non-named arguments as positional
+                        # arguments.
+                        sub_match_args = sub_match.args
+                        if not sub_match_dict:
+                            sub_match_args = args + sub_match.args
+                        current_route = (
+                            ""
+                            if isinstance(pattern, URLPattern)
+                            else str(pattern.pattern)
+                        )
+                        self._extend_tried(tried, pattern, sub_match.tried)
+                        return ResolverMatch(
+                            sub_match.func,
+                            sub_match_args,
+                            sub_match_dict,
+                            sub_match.url_name,
+                            [self.app_name] + sub_match.app_names,
+                            [self.namespace] + sub_match.namespaces,
+                            self._join_route(current_route, sub_match.route),
+                            tried,
+                            captured_kwargs=sub_match.captured_kwargs,
+                            extra_kwargs={
+                                **self.default_kwargs,
+                                **sub_match.extra_kwargs,
+                            },
+                        )
+                    tried.append([pattern])
+            raise Resolver404({"tried": tried, "path": new_path})
+&gt;       raise Resolver404({"path": path})
+E       django.urls.exceptions.Resolver404: {'path': 'url'}
+
+env1\lib\site-packages\django\urls\resolvers.py:703: Resolver404</failure><system-out>--------------------------------- Captured Log ---------------------------------
+
+--------------------------------- Captured Out ---------------------------------
+ResolverMatch(func=app.views.PostListView, args=(), kwargs={}, url_name='website-home', app_names=[], namespaces=[], route='')
+
+</system-out><system-err>--------------------------------- Captured Err ---------------------------------
+
+</system-err></testcase></testsuite></testsuites>

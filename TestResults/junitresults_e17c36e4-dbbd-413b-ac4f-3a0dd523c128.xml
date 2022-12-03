@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?><testsuites><testsuite name="pytest" errors="0" failures="1" skipped="0" tests="1" time="0.372" timestamp="2022-12-01T12:23:25.543272" hostname="Sangu-PC"><testcase classname="app.tests.test_urls.TestUrls" name="test_list_url_is_resolved" file="app\tests\test_urls.py" line="6" time="0.216"><failure message="NameError: name 'app' is not defined">self = &lt;app.tests.test_urls.TestUrls testMethod=test_list_url_is_resolved&gt;
+
+    def test_list_url_is_resolved(self):
+        url = reverse('website-home')
+        print(resolve(url))
+&gt;       self.assertEquals(resolve(url).func, app.views.PostListView)
+E       NameError: name 'app' is not defined
+
+app\tests\test_urls.py:10: NameError</failure><system-out>--------------------------------- Captured Log ---------------------------------
+
+--------------------------------- Captured Out ---------------------------------
+ResolverMatch(func=app.views.PostListView, args=(), kwargs={}, url_name='website-home', app_names=[], namespaces=[], route='')
+
+</system-out><system-err>--------------------------------- Captured Err ---------------------------------
+
+</system-err></testcase></testsuite></testsuites>
