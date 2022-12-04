@@ -31,7 +31,7 @@ class TestView(SimpleTestCase):
     def test_project_postdetail_GET(self):
         client = Client()
         url = reverse('post-detail', args='1')
-        response = client.get('post-detail')
+        response = client.get(url)
 
         self.assertEquals(response.status_code, 200)
         #self.client.login(username='Sangu', password='123')

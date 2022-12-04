@@ -3,6 +3,8 @@ from django.urls import reverse, resolve
 from app.views import home, PostListView, UserPostListView, PostDetailView, PostCreateView, PostUpdateView, PostDeleteView, about, galery, prenumerate, UserPostListView
 from Users.views import *
 from django.contrib.auth.views import LoginView, LogoutView, PasswordResetView
+from Users.views import PasswordsChangeView
+from Users.views import password_success as view
 
 class TestUrls(SimpleTestCase):
 
@@ -71,8 +73,13 @@ class TestUrls(SimpleTestCase):
         print(resolve(url))
         self.assertEquals(resolve(url).func.view_class, LogoutView)
 
-    def test_passwordreset_url_is_resolved(self):
-        url = reverse('password-reset')
+    def test_password_url_is_resolved(self):
+        url = reverse('password')
         print(resolve(url))
-        self.assertEquals(resolve(url).func.view_class, PasswordResetView)
+        self.assertEquals(resolve(url).func.view_class, PasswordsChangeView)
+
+    def test_password_success_url_is_resolved(self):
+            url = reverse('password-success')
+            print(resolve(url))
+            self.assertEquals(resolve(url).func, password_success)
 

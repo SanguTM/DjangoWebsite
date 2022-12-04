@@ -1,0 +1,552 @@
+<?xml version="1.0" encoding="utf-8"?><testsuites><testsuite name="pytest" errors="0" failures="5" skipped="0" tests="23" time="3.480" timestamp="2022-12-04T13:48:03.193167" hostname="Sangu-PC"><testcase classname="app.tests.test_forms.ModelsView" name="test_ProfileUpdateForm_for_valid_data" file="app\tests\test_forms.py" line="22" time="0.016"><system-out>--------------------------------- Captured Log ---------------------------------
+
+--------------------------------- Captured Out ---------------------------------
+
+
+</system-out><system-err>--------------------------------- Captured Err ---------------------------------
+
+</system-err></testcase><testcase classname="app.tests.test_forms.ModelsView" name="test_UserRegisterForm_for_valid_data" file="app\tests\test_forms.py" line="12" time="0.012"><system-out>--------------------------------- Captured Log ---------------------------------
+
+--------------------------------- Captured Out ---------------------------------
+
+
+</system-out><system-err>--------------------------------- Captured Err ---------------------------------
+
+</system-err></testcase><testcase classname="app.tests.test_forms.ModelsView" name="test_UserUpdateForm_for_valid_data" file="app\tests\test_forms.py" line="17" time="0.001"><system-out>--------------------------------- Captured Log ---------------------------------
+
+--------------------------------- Captured Out ---------------------------------
+
+
+</system-out><system-err>--------------------------------- Captured Err ---------------------------------
+
+</system-err></testcase><testcase classname="app.tests.test_models.ModelsView" name="test_comment_is_assigned" file="app\tests\test_models.py" line="35" time="1.526"><failure message="ValueError: Cannot assign &quot;2&quot;: &quot;Comment.post&quot; must be a &quot;Post&quot; instance.">self = &lt;app.tests.test_models.ModelsView testMethod=test_comment_is_assigned&gt;
+
+    def setUp(self):
+        # Create some users
+        self.user_1 = User.objects.create_user('Chevy Chase', 'chevy@chase.com', 'chevyspassword')
+    
+        user_1 = User.objects.all().get(username='Chevy Chase')
+        self.post = Post.objects.create(
+            title='postas1',
+            content='random post',
+            author = user_1)
+    
+&gt;       self.comment = Comment.objects.create(
+            post = 2,
+            name = 'Random name',
+            body = 'random comment')
+
+app\tests\test_models.py:22: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+env1\lib\site-packages\django\db\models\manager.py:85: in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+env1\lib\site-packages\django\db\models\query.py:669: in create
+    obj = self.model(**kwargs)
+env1\lib\site-packages\django\db\models\base.py:541: in __init__
+    _setattr(self, field.name, rel_obj)
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+
+self = &lt;django.db.models.fields.related_descriptors.ForwardManyToOneDescriptor object at 0x000001DCE02F36A0&gt;
+instance = &lt;[DoesNotExist('Comment matching query does not exist.') raised in repr()] Comment object at 0x1dce09eba60&gt;
+value = 2
+
+    def __set__(self, instance, value):
+        """
+        Set the related instance through the forward relation.
+    
+        With the example above, when setting ``child.parent = parent``:
+    
+        - ``self`` is the descriptor managing the ``parent`` attribute
+        - ``instance`` is the ``child`` instance
+        - ``value`` is the ``parent`` instance on the right of the equal sign
+        """
+        # An object must be an instance of the related class.
+        if value is not None and not isinstance(
+            value, self.field.remote_field.model._meta.concrete_model
+        ):
+&gt;           raise ValueError(
+                'Cannot assign "%r": "%s.%s" must be a "%s" instance.'
+                % (
+                    value,
+                    instance._meta.object_name,
+                    self.field.name,
+                    self.field.remote_field.model._meta.object_name,
+                )
+E               ValueError: Cannot assign "2": "Comment.post" must be a "Post" instance.
+
+env1\lib\site-packages\django\db\models\fields\related_descriptors.py:235: ValueError</failure><system-out>--------------------------------- Captured Log ---------------------------------
+
+--------------------------------- Captured Out ---------------------------------
+
+</system-out><system-err>--------------------------------- Captured Err ---------------------------------
+
+</system-err></testcase><testcase classname="app.tests.test_models.ModelsView" name="test_post_is_assigned" file="app\tests\test_models.py" line="30" time="0.187"><failure message="django.db.utils.IntegrityError: UNIQUE constraint failed: auth_user.username">self = &lt;django.db.backends.utils.CursorDebugWrapper object at 0x000001DCE0B4EB20&gt;
+sql = 'INSERT INTO "auth_user" ("password", "last_login", "is_superuser", "username", "first_name", "last_name", "email", "is_staff", "is_active", "date_joined") VALUES (%s, %s, %s, %s, %s, %s, %s, %s, %s, %s) RETURNING "auth_user"."id"'
+params = ('pbkdf2_sha256$390000$Z4sOPK686ahMzDEiIyUt8q$fp3DRBv39A2BMiv1X2VuakZhgOIeBATZOwruRKI+aR0=', None, False, 'Chevy Chase', '', '', ...)
+ignored_wrapper_args = (False, {'connection': &lt;DatabaseWrapper vendor='sqlite' alias='default'&gt;, 'cursor': &lt;django.db.backends.utils.CursorDebugWrapper object at 0x000001DCE0B4EB20&gt;})
+
+    def _execute(self, sql, params, *ignored_wrapper_args):
+        self.db.validate_no_broken_transaction()
+        with self.db.wrap_database_errors:
+            if params is None:
+                # params default might be backend specific.
+                return self.cursor.execute(sql)
+            else:
+&gt;               return self.cursor.execute(sql, params)
+
+env1\lib\site-packages\django\db\backends\utils.py:89: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+
+self = &lt;django.db.backends.sqlite3.base.SQLiteCursorWrapper object at 0x000001DCE0B161F0&gt;
+query = 'INSERT INTO "auth_user" ("password", "last_login", "is_superuser", "username", "first_name", "last_name", "email", "is_staff", "is_active", "date_joined") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?) RETURNING "auth_user"."id"'
+params = ('pbkdf2_sha256$390000$Z4sOPK686ahMzDEiIyUt8q$fp3DRBv39A2BMiv1X2VuakZhgOIeBATZOwruRKI+aR0=', None, False, 'Chevy Chase', '', '', ...)
+
+    def execute(self, query, params=None):
+        if params is None:
+            return Database.Cursor.execute(self, query)
+        query = self.convert_query(query)
+&gt;       return Database.Cursor.execute(self, query, params)
+E       sqlite3.IntegrityError: UNIQUE constraint failed: auth_user.username
+
+env1\lib\site-packages\django\db\backends\sqlite3\base.py:357: IntegrityError
+
+The above exception was the direct cause of the following exception:
+
+self = &lt;app.tests.test_models.ModelsView testMethod=test_post_is_assigned&gt;
+
+    def setUp(self):
+        # Create some users
+&gt;       self.user_1 = User.objects.create_user('Chevy Chase', 'chevy@chase.com', 'chevyspassword')
+
+app\tests\test_models.py:14: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+env1\lib\site-packages\django\contrib\auth\models.py:161: in create_user
+    return self._create_user(username, email, password, **extra_fields)
+env1\lib\site-packages\django\contrib\auth\models.py:155: in _create_user
+    user.save(using=self._db)
+env1\lib\site-packages\django\contrib\auth\base_user.py:68: in save
+    super().save(*args, **kwargs)
+env1\lib\site-packages\django\db\models\base.py:812: in save
+    self.save_base(
+env1\lib\site-packages\django\db\models\base.py:863: in save_base
+    updated = self._save_table(
+env1\lib\site-packages\django\db\models\base.py:1006: in _save_table
+    results = self._do_insert(
+env1\lib\site-packages\django\db\models\base.py:1047: in _do_insert
+    return manager._insert(
+env1\lib\site-packages\django\db\models\manager.py:85: in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+env1\lib\site-packages\django\db\models\query.py:1790: in _insert
+    return query.get_compiler(using=using).execute_sql(returning_fields)
+env1\lib\site-packages\django\db\models\sql\compiler.py:1660: in execute_sql
+    cursor.execute(sql, params)
+env1\lib\site-packages\django\db\backends\utils.py:103: in execute
+    return super().execute(sql, params)
+env1\lib\site-packages\django\db\backends\utils.py:67: in execute
+    return self._execute_with_wrappers(
+env1\lib\site-packages\django\db\backends\utils.py:80: in _execute_with_wrappers
+    return executor(sql, params, many, context)
+env1\lib\site-packages\django\db\backends\utils.py:89: in _execute
+    return self.cursor.execute(sql, params)
+env1\lib\site-packages\django\db\utils.py:91: in __exit__
+    raise dj_exc_value.with_traceback(traceback) from exc_value
+env1\lib\site-packages\django\db\backends\utils.py:89: in _execute
+    return self.cursor.execute(sql, params)
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+
+self = &lt;django.db.backends.sqlite3.base.SQLiteCursorWrapper object at 0x000001DCE0B161F0&gt;
+query = 'INSERT INTO "auth_user" ("password", "last_login", "is_superuser", "username", "first_name", "last_name", "email", "is_staff", "is_active", "date_joined") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?) RETURNING "auth_user"."id"'
+params = ('pbkdf2_sha256$390000$Z4sOPK686ahMzDEiIyUt8q$fp3DRBv39A2BMiv1X2VuakZhgOIeBATZOwruRKI+aR0=', None, False, 'Chevy Chase', '', '', ...)
+
+    def execute(self, query, params=None):
+        if params is None:
+            return Database.Cursor.execute(self, query)
+        query = self.convert_query(query)
+&gt;       return Database.Cursor.execute(self, query, params)
+E       django.db.utils.IntegrityError: UNIQUE constraint failed: auth_user.username
+
+env1\lib\site-packages\django\db\backends\sqlite3\base.py:357: IntegrityError</failure><system-out>--------------------------------- Captured Log ---------------------------------
+
+--------------------------------- Captured Out ---------------------------------
+
+</system-out><system-err>--------------------------------- Captured Err ---------------------------------
+
+</system-err></testcase><testcase classname="app.tests.test_models.ModelsView" name="test_user_is_assigned" file="app\tests\test_models.py" line="26" time="0.188"><failure message="django.db.utils.IntegrityError: UNIQUE constraint failed: auth_user.username">self = &lt;django.db.backends.utils.CursorDebugWrapper object at 0x000001DCE12672E0&gt;
+sql = 'INSERT INTO "auth_user" ("password", "last_login", "is_superuser", "username", "first_name", "last_name", "email", "is_staff", "is_active", "date_joined") VALUES (%s, %s, %s, %s, %s, %s, %s, %s, %s, %s) RETURNING "auth_user"."id"'
+params = ('pbkdf2_sha256$390000$rjYqlGoCGzKoTbkx0Y1Htn$wj/nZsAkabvpkAb4uBXd58DuQ/ZGn6XTHNzHiOclqr8=', None, False, 'Chevy Chase', '', '', ...)
+ignored_wrapper_args = (False, {'connection': &lt;DatabaseWrapper vendor='sqlite' alias='default'&gt;, 'cursor': &lt;django.db.backends.utils.CursorDebugWrapper object at 0x000001DCE12672E0&gt;})
+
+    def _execute(self, sql, params, *ignored_wrapper_args):
+        self.db.validate_no_broken_transaction()
+        with self.db.wrap_database_errors:
+            if params is None:
+                # params default might be backend specific.
+                return self.cursor.execute(sql)
+            else:
+&gt;               return self.cursor.execute(sql, params)
+
+env1\lib\site-packages\django\db\backends\utils.py:89: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+
+self = &lt;django.db.backends.sqlite3.base.SQLiteCursorWrapper object at 0x000001DCE0BD8670&gt;
+query = 'INSERT INTO "auth_user" ("password", "last_login", "is_superuser", "username", "first_name", "last_name", "email", "is_staff", "is_active", "date_joined") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?) RETURNING "auth_user"."id"'
+params = ('pbkdf2_sha256$390000$rjYqlGoCGzKoTbkx0Y1Htn$wj/nZsAkabvpkAb4uBXd58DuQ/ZGn6XTHNzHiOclqr8=', None, False, 'Chevy Chase', '', '', ...)
+
+    def execute(self, query, params=None):
+        if params is None:
+            return Database.Cursor.execute(self, query)
+        query = self.convert_query(query)
+&gt;       return Database.Cursor.execute(self, query, params)
+E       sqlite3.IntegrityError: UNIQUE constraint failed: auth_user.username
+
+env1\lib\site-packages\django\db\backends\sqlite3\base.py:357: IntegrityError
+
+The above exception was the direct cause of the following exception:
+
+self = &lt;app.tests.test_models.ModelsView testMethod=test_user_is_assigned&gt;
+
+    def setUp(self):
+        # Create some users
+&gt;       self.user_1 = User.objects.create_user('Chevy Chase', 'chevy@chase.com', 'chevyspassword')
+
+app\tests\test_models.py:14: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+env1\lib\site-packages\django\contrib\auth\models.py:161: in create_user
+    return self._create_user(username, email, password, **extra_fields)
+env1\lib\site-packages\django\contrib\auth\models.py:155: in _create_user
+    user.save(using=self._db)
+env1\lib\site-packages\django\contrib\auth\base_user.py:68: in save
+    super().save(*args, **kwargs)
+env1\lib\site-packages\django\db\models\base.py:812: in save
+    self.save_base(
+env1\lib\site-packages\django\db\models\base.py:863: in save_base
+    updated = self._save_table(
+env1\lib\site-packages\django\db\models\base.py:1006: in _save_table
+    results = self._do_insert(
+env1\lib\site-packages\django\db\models\base.py:1047: in _do_insert
+    return manager._insert(
+env1\lib\site-packages\django\db\models\manager.py:85: in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+env1\lib\site-packages\django\db\models\query.py:1790: in _insert
+    return query.get_compiler(using=using).execute_sql(returning_fields)
+env1\lib\site-packages\django\db\models\sql\compiler.py:1660: in execute_sql
+    cursor.execute(sql, params)
+env1\lib\site-packages\django\db\backends\utils.py:103: in execute
+    return super().execute(sql, params)
+env1\lib\site-packages\django\db\backends\utils.py:67: in execute
+    return self._execute_with_wrappers(
+env1\lib\site-packages\django\db\backends\utils.py:80: in _execute_with_wrappers
+    return executor(sql, params, many, context)
+env1\lib\site-packages\django\db\backends\utils.py:89: in _execute
+    return self.cursor.execute(sql, params)
+env1\lib\site-packages\django\db\utils.py:91: in __exit__
+    raise dj_exc_value.with_traceback(traceback) from exc_value
+env1\lib\site-packages\django\db\backends\utils.py:89: in _execute
+    return self.cursor.execute(sql, params)
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+
+self = &lt;django.db.backends.sqlite3.base.SQLiteCursorWrapper object at 0x000001DCE0BD8670&gt;
+query = 'INSERT INTO "auth_user" ("password", "last_login", "is_superuser", "username", "first_name", "last_name", "email", "is_staff", "is_active", "date_joined") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?) RETURNING "auth_user"."id"'
+params = ('pbkdf2_sha256$390000$rjYqlGoCGzKoTbkx0Y1Htn$wj/nZsAkabvpkAb4uBXd58DuQ/ZGn6XTHNzHiOclqr8=', None, False, 'Chevy Chase', '', '', ...)
+
+    def execute(self, query, params=None):
+        if params is None:
+            return Database.Cursor.execute(self, query)
+        query = self.convert_query(query)
+&gt;       return Database.Cursor.execute(self, query, params)
+E       django.db.utils.IntegrityError: UNIQUE constraint failed: auth_user.username
+
+env1\lib\site-packages\django\db\backends\sqlite3\base.py:357: IntegrityError</failure><system-out>--------------------------------- Captured Log ---------------------------------
+
+--------------------------------- Captured Out ---------------------------------
+
+</system-out><system-err>--------------------------------- Captured Err ---------------------------------
+
+</system-err></testcase><testcase classname="app.tests.test_urls.TestUrls" name="test_about_url_is_resolved" file="app\tests\test_urls.py" line="15" time="0.012"><system-out>--------------------------------- Captured Log ---------------------------------
+
+--------------------------------- Captured Out ---------------------------------
+ResolverMatch(func=app.views.about, args=(), kwargs={}, url_name='website-about', app_names=[], namespaces=[], route='about/')
+
+</system-out><system-err>--------------------------------- Captured Err ---------------------------------
+
+</system-err></testcase><testcase classname="app.tests.test_urls.TestUrls" name="test_create_url_is_resolved" file="app\tests\test_urls.py" line="35" time="0.001"><system-out>--------------------------------- Captured Log ---------------------------------
+
+--------------------------------- Captured Out ---------------------------------
+ResolverMatch(func=app.views.PostCreateView, args=(), kwargs={}, url_name='post-create', app_names=[], namespaces=[], route='post/new/')
+
+</system-out><system-err>--------------------------------- Captured Err ---------------------------------
+
+</system-err></testcase><testcase classname="app.tests.test_urls.TestUrls" name="test_delete_url_is_resolved" file="app\tests\test_urls.py" line="45" time="0.001"><system-out>--------------------------------- Captured Log ---------------------------------
+
+--------------------------------- Captured Out ---------------------------------
+ResolverMatch(func=app.views.PostDeleteView, args=(), kwargs={'pk': 1}, url_name='post-delete', app_names=[], namespaces=[], route='post/&lt;int:pk&gt;/delete/', captured_kwargs={'pk': 1})
+
+</system-out><system-err>--------------------------------- Captured Err ---------------------------------
+
+</system-err></testcase><testcase classname="app.tests.test_urls.TestUrls" name="test_details_url_is_resolved" file="app\tests\test_urls.py" line="30" time="0.001"><system-out>--------------------------------- Captured Log ---------------------------------
+
+--------------------------------- Captured Out ---------------------------------
+ResolverMatch(func=app.views.PostDetailView, args=(), kwargs={'pk': 1}, url_name='post-detail', app_names=[], namespaces=[], route='post/&lt;int:pk&gt;/', captured_kwargs={'pk': 1})
+
+</system-out><system-err>--------------------------------- Captured Err ---------------------------------
+
+</system-err></testcase><testcase classname="app.tests.test_urls.TestUrls" name="test_galery_url_is_resolved" file="app\tests\test_urls.py" line="20" time="0.001"><system-out>--------------------------------- Captured Log ---------------------------------
+
+--------------------------------- Captured Out ---------------------------------
+ResolverMatch(func=app.views.galery, args=(), kwargs={}, url_name='website-galery', app_names=[], namespaces=[], route='galery/')
+
+</system-out><system-err>--------------------------------- Captured Err ---------------------------------
+
+</system-err></testcase><testcase classname="app.tests.test_urls.TestUrls" name="test_home_url_is_resolved" file="app\tests\test_urls.py" line="10" time="0.001"><system-out>--------------------------------- Captured Log ---------------------------------
+
+--------------------------------- Captured Out ---------------------------------
+ResolverMatch(func=app.views.PostListView, args=(), kwargs={}, url_name='website-home', app_names=[], namespaces=[], route='')
+
+</system-out><system-err>--------------------------------- Captured Err ---------------------------------
+
+</system-err></testcase><testcase classname="app.tests.test_urls.TestUrls" name="test_login_url_is_resolved" file="app\tests\test_urls.py" line="65" time="0.001"><system-out>--------------------------------- Captured Log ---------------------------------
+
+--------------------------------- Captured Out ---------------------------------
+ResolverMatch(func=django.contrib.auth.views.LoginView, args=(), kwargs={}, url_name='login', app_names=[], namespaces=[], route='login/')
+
+</system-out><system-err>--------------------------------- Captured Err ---------------------------------
+
+</system-err></testcase><testcase classname="app.tests.test_urls.TestUrls" name="test_logout_url_is_resolved" file="app\tests\test_urls.py" line="70" time="0.001"><system-out>--------------------------------- Captured Log ---------------------------------
+
+--------------------------------- Captured Out ---------------------------------
+ResolverMatch(func=django.contrib.auth.views.LogoutView, args=(), kwargs={}, url_name='logout', app_names=[], namespaces=[], route='logout/')
+
+</system-out><system-err>--------------------------------- Captured Err ---------------------------------
+
+</system-err></testcase><testcase classname="app.tests.test_urls.TestUrls" name="test_password_success_url_is_resolved" file="app\tests\test_urls.py" line="80" time="0.001"><system-out>--------------------------------- Captured Log ---------------------------------
+
+--------------------------------- Captured Out ---------------------------------
+ResolverMatch(func=Users.views.password_success, args=(), kwargs={}, url_name='password-success', app_names=[], namespaces=[], route='password-success/')
+
+</system-out><system-err>--------------------------------- Captured Err ---------------------------------
+
+</system-err></testcase><testcase classname="app.tests.test_urls.TestUrls" name="test_password_url_is_resolved" file="app\tests\test_urls.py" line="75" time="0.001"><system-out>--------------------------------- Captured Log ---------------------------------
+
+--------------------------------- Captured Out ---------------------------------
+ResolverMatch(func=Users.views.PasswordsChangeView, args=(), kwargs={}, url_name='password', app_names=[], namespaces=[], route='password/')
+
+</system-out><system-err>--------------------------------- Captured Err ---------------------------------
+
+</system-err></testcase><testcase classname="app.tests.test_urls.TestUrls" name="test_prenumerate_url_is_resolved" file="app\tests\test_urls.py" line="25" time="0.001"><system-out>--------------------------------- Captured Log ---------------------------------
+
+--------------------------------- Captured Out ---------------------------------
+ResolverMatch(func=app.views.prenumerate, args=(), kwargs={}, url_name='website-prenumerate', app_names=[], namespaces=[], route='prenumerate/')
+
+</system-out><system-err>--------------------------------- Captured Err ---------------------------------
+
+</system-err></testcase><testcase classname="app.tests.test_urls.TestUrls" name="test_profile_url_is_resolved" file="app\tests\test_urls.py" line="60" time="0.001"><system-out>--------------------------------- Captured Log ---------------------------------
+
+--------------------------------- Captured Out ---------------------------------
+ResolverMatch(func=Users.views.profile, args=(), kwargs={}, url_name='profile', app_names=[], namespaces=[], route='profile/')
+
+</system-out><system-err>--------------------------------- Captured Err ---------------------------------
+
+</system-err></testcase><testcase classname="app.tests.test_urls.TestUrls" name="test_register_url_is_resolved" file="app\tests\test_urls.py" line="55" time="0.001"><system-out>--------------------------------- Captured Log ---------------------------------
+
+--------------------------------- Captured Out ---------------------------------
+ResolverMatch(func=Users.views.register, args=(), kwargs={}, url_name='register', app_names=[], namespaces=[], route='register/')
+
+</system-out><system-err>--------------------------------- Captured Err ---------------------------------
+
+</system-err></testcase><testcase classname="app.tests.test_urls.TestUrls" name="test_update_url_is_resolved" file="app\tests\test_urls.py" line="40" time="0.001"><system-out>--------------------------------- Captured Log ---------------------------------
+
+--------------------------------- Captured Out ---------------------------------
+ResolverMatch(func=app.views.PostUpdateView, args=(), kwargs={'pk': 1}, url_name='post-update', app_names=[], namespaces=[], route='post/&lt;int:pk&gt;/update/', captured_kwargs={'pk': 1})
+
+</system-out><system-err>--------------------------------- Captured Err ---------------------------------
+
+</system-err></testcase><testcase classname="app.tests.test_urls.TestUrls" name="test_userposts_url_is_resolved" file="app\tests\test_urls.py" line="50" time="0.001"><system-out>--------------------------------- Captured Log ---------------------------------
+
+--------------------------------- Captured Out ---------------------------------
+ResolverMatch(func=app.views.UserPostListView, args=(), kwargs={'username': '1'}, url_name='user-posts', app_names=[], namespaces=[], route='_user/&lt;str:username&gt;', captured_kwargs={'username': '1'})
+
+</system-out><system-err>--------------------------------- Captured Err ---------------------------------
+
+</system-err></testcase><testcase classname="app.tests.test_views.TestView" name="test_project_home_GET" file="app\tests\test_views.py" line="20" time="0.188"><failure message="django.db.utils.IntegrityError: UNIQUE constraint failed: auth_user.username">self = &lt;django.db.backends.utils.CursorDebugWrapper object at 0x000001DCE0BA27C0&gt;
+sql = 'INSERT INTO "auth_user" ("password", "last_login", "is_superuser", "username", "first_name", "last_name", "email", "is_staff", "is_active", "date_joined") VALUES (%s, %s, %s, %s, %s, %s, %s, %s, %s, %s) RETURNING "auth_user"."id"'
+params = ('pbkdf2_sha256$390000$LtMh2orUCOfLCw2JQUG7gd$ict+AuPwtL58XMP6lqD6xtbV2J6xf8gGz0iK4NzBpno=', None, False, 'Chevy Chase', '', '', ...)
+ignored_wrapper_args = (False, {'connection': &lt;DatabaseWrapper vendor='sqlite' alias='default'&gt;, 'cursor': &lt;django.db.backends.utils.CursorDebugWrapper object at 0x000001DCE0BA27C0&gt;})
+
+    def _execute(self, sql, params, *ignored_wrapper_args):
+        self.db.validate_no_broken_transaction()
+        with self.db.wrap_database_errors:
+            if params is None:
+                # params default might be backend specific.
+                return self.cursor.execute(sql)
+            else:
+&gt;               return self.cursor.execute(sql, params)
+
+env1\lib\site-packages\django\db\backends\utils.py:89: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+
+self = &lt;django.db.backends.sqlite3.base.SQLiteCursorWrapper object at 0x000001DCE0BC4040&gt;
+query = 'INSERT INTO "auth_user" ("password", "last_login", "is_superuser", "username", "first_name", "last_name", "email", "is_staff", "is_active", "date_joined") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?) RETURNING "auth_user"."id"'
+params = ('pbkdf2_sha256$390000$LtMh2orUCOfLCw2JQUG7gd$ict+AuPwtL58XMP6lqD6xtbV2J6xf8gGz0iK4NzBpno=', None, False, 'Chevy Chase', '', '', ...)
+
+    def execute(self, query, params=None):
+        if params is None:
+            return Database.Cursor.execute(self, query)
+        query = self.convert_query(query)
+&gt;       return Database.Cursor.execute(self, query, params)
+E       sqlite3.IntegrityError: UNIQUE constraint failed: auth_user.username
+
+env1\lib\site-packages\django\db\backends\sqlite3\base.py:357: IntegrityError
+
+The above exception was the direct cause of the following exception:
+
+self = &lt;app.tests.test_views.TestView testMethod=test_project_home_GET&gt;
+
+    def setUp(self):
+        # Create some users
+&gt;       self.user_1 = User.objects.create_user('Chevy Chase', 'chevy@chase.com', 'chevyspassword')
+
+app\tests\test_views.py:13: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+env1\lib\site-packages\django\contrib\auth\models.py:161: in create_user
+    return self._create_user(username, email, password, **extra_fields)
+env1\lib\site-packages\django\contrib\auth\models.py:155: in _create_user
+    user.save(using=self._db)
+env1\lib\site-packages\django\contrib\auth\base_user.py:68: in save
+    super().save(*args, **kwargs)
+env1\lib\site-packages\django\db\models\base.py:812: in save
+    self.save_base(
+env1\lib\site-packages\django\db\models\base.py:863: in save_base
+    updated = self._save_table(
+env1\lib\site-packages\django\db\models\base.py:1006: in _save_table
+    results = self._do_insert(
+env1\lib\site-packages\django\db\models\base.py:1047: in _do_insert
+    return manager._insert(
+env1\lib\site-packages\django\db\models\manager.py:85: in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+env1\lib\site-packages\django\db\models\query.py:1790: in _insert
+    return query.get_compiler(using=using).execute_sql(returning_fields)
+env1\lib\site-packages\django\db\models\sql\compiler.py:1660: in execute_sql
+    cursor.execute(sql, params)
+env1\lib\site-packages\django\db\backends\utils.py:103: in execute
+    return super().execute(sql, params)
+env1\lib\site-packages\django\db\backends\utils.py:67: in execute
+    return self._execute_with_wrappers(
+env1\lib\site-packages\django\db\backends\utils.py:80: in _execute_with_wrappers
+    return executor(sql, params, many, context)
+env1\lib\site-packages\django\db\backends\utils.py:89: in _execute
+    return self.cursor.execute(sql, params)
+env1\lib\site-packages\django\db\utils.py:91: in __exit__
+    raise dj_exc_value.with_traceback(traceback) from exc_value
+env1\lib\site-packages\django\db\backends\utils.py:89: in _execute
+    return self.cursor.execute(sql, params)
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+
+self = &lt;django.db.backends.sqlite3.base.SQLiteCursorWrapper object at 0x000001DCE0BC4040&gt;
+query = 'INSERT INTO "auth_user" ("password", "last_login", "is_superuser", "username", "first_name", "last_name", "email", "is_staff", "is_active", "date_joined") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?) RETURNING "auth_user"."id"'
+params = ('pbkdf2_sha256$390000$LtMh2orUCOfLCw2JQUG7gd$ict+AuPwtL58XMP6lqD6xtbV2J6xf8gGz0iK4NzBpno=', None, False, 'Chevy Chase', '', '', ...)
+
+    def execute(self, query, params=None):
+        if params is None:
+            return Database.Cursor.execute(self, query)
+        query = self.convert_query(query)
+&gt;       return Database.Cursor.execute(self, query, params)
+E       django.db.utils.IntegrityError: UNIQUE constraint failed: auth_user.username
+
+env1\lib\site-packages\django\db\backends\sqlite3\base.py:357: IntegrityError</failure><system-out>--------------------------------- Captured Log ---------------------------------
+
+--------------------------------- Captured Out ---------------------------------
+
+</system-out><system-err>--------------------------------- Captured Err ---------------------------------
+
+</system-err></testcase><testcase classname="app.tests.test_views.TestView" name="test_project_postdetail_GET" file="app\tests\test_views.py" line="30" time="0.186"><failure message="django.db.utils.IntegrityError: UNIQUE constraint failed: auth_user.username">self = &lt;django.db.backends.utils.CursorDebugWrapper object at 0x000001DCE0C8B940&gt;
+sql = 'INSERT INTO "auth_user" ("password", "last_login", "is_superuser", "username", "first_name", "last_name", "email", "is_staff", "is_active", "date_joined") VALUES (%s, %s, %s, %s, %s, %s, %s, %s, %s, %s) RETURNING "auth_user"."id"'
+params = ('pbkdf2_sha256$390000$4BpVuXyA30vIMhervNsozE$nuZlOdmGLxm1yiistbW8ktmMjIAdz4twsEIkKPXKtK8=', None, False, 'Chevy Chase', '', '', ...)
+ignored_wrapper_args = (False, {'connection': &lt;DatabaseWrapper vendor='sqlite' alias='default'&gt;, 'cursor': &lt;django.db.backends.utils.CursorDebugWrapper object at 0x000001DCE0C8B940&gt;})
+
+    def _execute(self, sql, params, *ignored_wrapper_args):
+        self.db.validate_no_broken_transaction()
+        with self.db.wrap_database_errors:
+            if params is None:
+                # params default might be backend specific.
+                return self.cursor.execute(sql)
+            else:
+&gt;               return self.cursor.execute(sql, params)
+
+env1\lib\site-packages\django\db\backends\utils.py:89: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+
+self = &lt;django.db.backends.sqlite3.base.SQLiteCursorWrapper object at 0x000001DCE0BD89D0&gt;
+query = 'INSERT INTO "auth_user" ("password", "last_login", "is_superuser", "username", "first_name", "last_name", "email", "is_staff", "is_active", "date_joined") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?) RETURNING "auth_user"."id"'
+params = ('pbkdf2_sha256$390000$4BpVuXyA30vIMhervNsozE$nuZlOdmGLxm1yiistbW8ktmMjIAdz4twsEIkKPXKtK8=', None, False, 'Chevy Chase', '', '', ...)
+
+    def execute(self, query, params=None):
+        if params is None:
+            return Database.Cursor.execute(self, query)
+        query = self.convert_query(query)
+&gt;       return Database.Cursor.execute(self, query, params)
+E       sqlite3.IntegrityError: UNIQUE constraint failed: auth_user.username
+
+env1\lib\site-packages\django\db\backends\sqlite3\base.py:357: IntegrityError
+
+The above exception was the direct cause of the following exception:
+
+self = &lt;app.tests.test_views.TestView testMethod=test_project_postdetail_GET&gt;
+
+    def setUp(self):
+        # Create some users
+&gt;       self.user_1 = User.objects.create_user('Chevy Chase', 'chevy@chase.com', 'chevyspassword')
+
+app\tests\test_views.py:13: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+env1\lib\site-packages\django\contrib\auth\models.py:161: in create_user
+    return self._create_user(username, email, password, **extra_fields)
+env1\lib\site-packages\django\contrib\auth\models.py:155: in _create_user
+    user.save(using=self._db)
+env1\lib\site-packages\django\contrib\auth\base_user.py:68: in save
+    super().save(*args, **kwargs)
+env1\lib\site-packages\django\db\models\base.py:812: in save
+    self.save_base(
+env1\lib\site-packages\django\db\models\base.py:863: in save_base
+    updated = self._save_table(
+env1\lib\site-packages\django\db\models\base.py:1006: in _save_table
+    results = self._do_insert(
+env1\lib\site-packages\django\db\models\base.py:1047: in _do_insert
+    return manager._insert(
+env1\lib\site-packages\django\db\models\manager.py:85: in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+env1\lib\site-packages\django\db\models\query.py:1790: in _insert
+    return query.get_compiler(using=using).execute_sql(returning_fields)
+env1\lib\site-packages\django\db\models\sql\compiler.py:1660: in execute_sql
+    cursor.execute(sql, params)
+env1\lib\site-packages\django\db\backends\utils.py:103: in execute
+    return super().execute(sql, params)
+env1\lib\site-packages\django\db\backends\utils.py:67: in execute
+    return self._execute_with_wrappers(
+env1\lib\site-packages\django\db\backends\utils.py:80: in _execute_with_wrappers
+    return executor(sql, params, many, context)
+env1\lib\site-packages\django\db\backends\utils.py:89: in _execute
+    return self.cursor.execute(sql, params)
+env1\lib\site-packages\django\db\utils.py:91: in __exit__
+    raise dj_exc_value.with_traceback(traceback) from exc_value
+env1\lib\site-packages\django\db\backends\utils.py:89: in _execute
+    return self.cursor.execute(sql, params)
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+
+self = &lt;django.db.backends.sqlite3.base.SQLiteCursorWrapper object at 0x000001DCE0BD89D0&gt;
+query = 'INSERT INTO "auth_user" ("password", "last_login", "is_superuser", "username", "first_name", "last_name", "email", "is_staff", "is_active", "date_joined") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?) RETURNING "auth_user"."id"'
+params = ('pbkdf2_sha256$390000$4BpVuXyA30vIMhervNsozE$nuZlOdmGLxm1yiistbW8ktmMjIAdz4twsEIkKPXKtK8=', None, False, 'Chevy Chase', '', '', ...)
+
+    def execute(self, query, params=None):
+        if params is None:
+            return Database.Cursor.execute(self, query)
+        query = self.convert_query(query)
+&gt;       return Database.Cursor.execute(self, query, params)
+E       django.db.utils.IntegrityError: UNIQUE constraint failed: auth_user.username
+
+env1\lib\site-packages\django\db\backends\sqlite3\base.py:357: IntegrityError</failure><system-out>--------------------------------- Captured Log ---------------------------------
+
+--------------------------------- Captured Out ---------------------------------
+
+</system-out><system-err>--------------------------------- Captured Err ---------------------------------
+
+</system-err></testcase></testsuite></testsuites>
