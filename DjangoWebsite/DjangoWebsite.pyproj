@@ -105,6 +105,7 @@
   <ItemGroup>
     <Content Include="app\static\app\content\main.css" />
     <Content Include="app\static\app\content\mystyle.css" />
+    <Content Include="app\templates\app\add_comment.html" />
     <Content Include="app\templates\app\post_confirm_delete.html" />
     <Content Include="app\templates\app\post_detail.html" />
     <Content Include="app\templates\app\base.html" />
@@ -143,6 +144,8 @@
     <Content Include="Users\templates\Users\index.html" />
     <Content Include="Users\templates\Users\login.html" />
     <Content Include="Users\templates\Users\logout.html" />
+    <Content Include="Users\templates\Users\change-password.html" />
+    <Content Include="Users\templates\Users\password-success.html" />
     <Content Include="Users\templates\Users\profile.html" />
     <Content Include="Users\templates\Users\register.html" />
   </ItemGroup>

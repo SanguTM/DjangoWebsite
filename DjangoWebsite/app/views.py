@@ -7,9 +7,10 @@ from django.shortcuts import render, get_object_or_404
 from django.contrib.auth.models import User
 from django.http import HttpRequest
 from django.http import HttpResponse
-from .models import Post
+from .models import Post, Comment
 from django.views.generic import ListView, DetailView, CreateView, UpdateView, DeleteView
 from django.contrib.auth.mixins import LoginRequiredMixin, UserPassesTestMixin
+from .forms import CommentForm
 
 
 def home(request):
@@ -80,4 +81,13 @@ def galery(request):
 def prenumerate(request):
      return render(request, 'app/prenumerate.html')
 
+class CommentCreateView(CreateView):
+    model = Comment
+    template_name = 'app/add_comment.html'
+    form_class = CommentForm
+    success_url = '/'
 
+    def form_valid(self, form):
+        form.instance.name = self.request.user
+        form.instance.post_id = self.kwargs['pk']
+        return super().form_valid(form)

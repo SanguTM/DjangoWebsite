@@ -125,6 +125,7 @@ CKEDITOR_CONFIGS = {
     'default': {
         'height': 'full', 
         'width': 'full', 
+        'autoParagraph': False
     },
 }
 

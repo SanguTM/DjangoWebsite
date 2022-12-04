@@ -15,9 +15,6 @@ class TestUrls(SimpleTestCase):
         url = reverse('website-about')
         print(resolve(url))
         self.assertEqual(resolve(url).func, about)
-        #self.assertEquals(resolve(url).func.view_class, PostListView)
-
-        #args=['some-slug']
 
     def test_galery_url_is_resolved(self):
         url = reverse('website-galery')

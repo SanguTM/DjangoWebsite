@@ -1,7 +1,7 @@
 from django import forms
 from django.contrib.auth.forms import AuthenticationForm
 from ckeditor.fields import RichTextField
-from django.utils.translation import ugettext_lazy as _
+from .models import Post, Comment
 
 class BootstrapAuthenticationForm(AuthenticationForm):
     """Authentication form which uses boostrap CSS."""
@@ -9,7 +9,7 @@ class BootstrapAuthenticationForm(AuthenticationForm):
                                widget=forms.TextInput({
                                    'class': 'form-control',
                                    'placeholder': 'User name'}))
-    password = forms.CharField(label=_("Password"),
+    password = forms.CharField(label=("Password"),
                                widget=forms.PasswordInput({
                                    'class': 'form-control',
                                    'placeholder':'Password'}))
@@ -17,4 +17,9 @@ class BootstrapAuthenticationForm(AuthenticationForm):
 class PostForm(forms.ModelForm):
     class Meta:
         model = Post
-        fields = ('title','text',)
+        fields = ('title','content',)
+
+class CommentForm(forms.ModelForm):
+    class Meta:
+        model = Comment
+        fields = ('name','body')

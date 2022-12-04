@@ -9,8 +9,8 @@
                 <small class="text-muted">{{ object.date_posted|date:"Y F d"}}</small>
                 {% if object.author == user %}
                 <div>
-                    <a class="btn btn-secondary btn-sm mt-1 mb-1" href="{% url 'post-update' object.id %}">Update</a>
-                    <a class="btn btn-danger btn-sm mt-1 mb-1" href="{% url 'post-delete' object.id %}">Delete</a>
+                    <a class="btn btn-secondary btn-sm mt-1 mb-1" href="{% url 'post-update' object.id %}">Atnaujinti</a>
+                    <a class="btn btn-danger btn-sm mt-1 mb-1" href="{% url 'post-delete' object.id %}">Ištrinti</a>
                 </div>
                 {% endif %}
             </div>
@@ -19,4 +19,24 @@
 		<hr>
         </div>
     </article>
+     <h2>Komentarai:</h2>
+    <hr>
+    <div class="pb=4">
+        {% if not post.comments.all %}
+            <a class="btn btn-info mb-4 mar-t blue" href="{% url 'post-comment' post.pk %}">Būk pirmas!</a>
+        {% else %}
+        <a class="btn btn-info mb-4 mar-t blue" href="{% url 'post-comment' post.pk %}">Komentuok</a>
+        <br>
+        <br>
+            {% for comment in post.comments.all %}
+                <strong>{{ comment.name }} - {{ comment.date_added|date:"Y F d" }}
+                </strong>
+                <br>
+                <br>
+                {{ comment.body }}
+            <hr>
+            {% endfor %}
+        {% endif %}
+    </div>
+    <br>
 {% endblock content %}
