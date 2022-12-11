@@ -109,7 +109,7 @@
     <Content Include="app\templates\app\post_confirm_delete.html" />
     <Content Include="app\templates\app\post_detail.html" />
     <Content Include="app\templates\app\base.html" />
-    <Content Include="app\templates\app\galery.html" />
+    <Content Include="app\templates\app\gallery.html" />
     <Content Include="app\templates\app\loginpartial.html" />
     <Content Include="app\templates\app\post_form.html" />
     <Content Include="app\templates\app\prenumerate.html" />

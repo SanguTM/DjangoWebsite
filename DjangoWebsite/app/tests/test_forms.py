@@ -6,6 +6,7 @@ from django.contrib.auth.models import User
 import json
 from django.http import HttpRequest, HttpResponse
 from Users.forms import UserRegisterForm, UserUpdateForm, ProfileUpdateForm
+from app.forms import PostForm, CommentForm
 
 class ModelsView(SimpleTestCase):
     databases = '__all__'
@@ -22,5 +23,15 @@ class ModelsView(SimpleTestCase):
 
     def test_ProfileUpdateForm_for_valid_data(self):
         form = ProfileUpdateForm(data={'image': ''})
+        print(form.errors)
+        self.assertTrue(form.is_valid())
+
+    def test_PostForm_for_valid_data(self):
+        form = PostForm(data={'title': 'pavadinimas', 'content':'Čia labai daug svarbaus turinio'})
+        print(form.errors)
+        self.assertTrue(form.is_valid())
+
+    def test_CommentForm_for_valid_data(self):
+        form = CommentForm(data={'name': 'Linas', 'body':'Man labai patiko tavo tekstas'})
         print(form.errors)
         self.assertTrue(form.is_valid())

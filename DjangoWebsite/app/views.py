@@ -75,8 +75,8 @@ class PostDeleteView(LoginRequiredMixin, UserPassesTestMixin, DeleteView):
 def about(request):
     return render(request, 'app/about.html', {'title': 'About'})
 
-def galery(request):
-    return render(request, 'app/galery.html')
+def gallery(request):
+    return render(request, 'app/gallery.html')
 
 def prenumerate(request):
      return render(request, 'app/prenumerate.html')
