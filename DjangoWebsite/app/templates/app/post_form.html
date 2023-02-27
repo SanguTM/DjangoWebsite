@@ -1,0 +1,20 @@
+{% extends "app/base.html" %}
+{% load crispy_forms_tags %}
+   
+
+{% block content %}
+    <div class="content-section">
+        <form method="POST" class="tinymce">
+            {% csrf_token %}
+            <fieldset class="form-group">
+                <legend class="border-bottom mb=4">Naujas įrašas</legend>
+                {{ form|crispy }}
+                {{ form.media }}   
+            </fieldset>
+            <div class="form-group">
+                <button class="btn btn-outline-info" type="submit">Paskelbti</button>
+            </div>
+        </form>
+    </div>
+{% endblock content %}
+

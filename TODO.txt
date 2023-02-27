@@ -1,0 +1,5 @@
+localisation
+working gallery
+settings day/night
+post display options (rodyti dali iraso)
+search

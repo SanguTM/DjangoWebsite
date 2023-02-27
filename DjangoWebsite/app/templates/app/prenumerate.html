@@ -1,0 +1,42 @@
+{% extends "app/base.html" %}
+{% block content %}
+	<h2>Prenumerata:</h2>
+	<p>Sveiki! Jeigu norite gauti pranešimus, kiekvieną kartą man paskelbus naują įrašą, užpildykite žemiau esančią formą:</p>
+	<br>
+<legend class="border-bottom mb=4">Asmeninė informacija:</legend>
+<form>
+	<fieldset class="form-group">
+  <div class="mb-3">
+    <label class="form-label">Jūsų vardas</label>
+    <input type="text" class="form-control" aria-describedby="vardas" name="vardas">
+  </div>
+  <div class="mb-3">
+    <label class="form-label">Jūsų pavardė</label>
+    <input type="text" class="form-control" aria-describedby="pavarde" name="pavarde">
+  </div>
+ </fieldset>
+</form>
+<legend class="border-bottom mb=4">Kontaktine informacija:</legend>
+<form>
+ <fieldset class="form-group">
+  <div class="mb-3">
+    <label class="form-label">El. pastas:</label>
+    <input type="email" class="form-control" aria-describedby="elpastas" name="elpastas">
+  </div>
+  <div class="mb-3">
+    <label class="form-label">Telefonas:</label>
+    <input type="tel" class="form-control" aria-describedby="telefonas" name="telefonas">
+  </div>
+ </fieldset>
+</form>
+<legend class="border-bottom mb=4">Naujienas norite gauti:</legend>
+<form>
+ <fieldset class="form-group pb-3">
+  <div class="mb-3">
+	<input class="form-check-input" type="radio" value="p" name="tipas"> <label class="form-check-label">El. paštu</label>
+	<input class="form-check-input" type="radio" value="t" name="tipas"> <label class="form-check-label">SMS</label>
+  </div>
+	 <button type="submit" class="btn btn-primary ">PATVIRTINI</button> <button type="reset" class="btn btn-danger">ATMESTI</button>
+ </fieldset>
+</form>
+{% endblock content %}
