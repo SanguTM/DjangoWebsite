@@ -8,22 +8,22 @@
             <a class="mr-2" href="{% url 'user-posts' object.author.username %}">{{ object.author }}</a>
             <small class="text-muted">{{ object.date_posted|date:"Y F d"}}</small>
             <a class="mr-2" href="{% url 'category' post.category %}">{{ post.category }}</a>
-            {% if object.author == user %}
-            <div>
-                <a class="btn btn-secondary btn-sm mt-1 mb-1" href="{% url 'post-update' object.id %}">Atnaujinti</a>
-                <a class="btn btn-danger btn-sm mt-1 mb-1" href="{% url 'post-delete' object.id %}">Ištrinti</a>
-            </div>
-            {% endif %}
         </div>
         <h2 class="article-title">{{ object.title }}</h2>
         <p class="article-conten img3">{{ object.content|safe }}</p>
+        {% if object.author == user %}
+        <div>
+            <a class="btn btn-secondary btn-sm mt-1 mb-1" href="{% url 'post-update' object.id %}">Atnaujinti</a>
+            <a class="btn btn-danger btn-sm mt-1 mb-1" href="{% url 'post-delete' object.id %}">Ištrinti</a>
+        </div>
+        {% endif %}
+        <hr>
         <div class="btn-group" role="group" aria-label="Basic example">
             {% post_to_twitter "New post just come: {{ object.title }}. Check it out!" object_or_url '<button class="btn btn-info" type="button"><span><i class="fa-brands fa-twitter text-white"></i></span><span class="text-white">Twitter</span></button>' %}
             {% post_to_reddit "New post just come: {{ object.title }}. Check it out!" object_or_url '<button class="btn btn-info" style="background-color: #ff4500;" type="button"><span><i class="fa-brands fa-reddit-alien text-white"></i></span><span class="text-white">Reddit</span></button>' %}
             {% post_to_facebook object_or_url '<button class="btn btn-info" style="background-color: #3b5998" type="button"><span><i class="fa-brands fab fa-facebook-f text-white"></i></span><span class="text-white">Facebook</span></button>' %}
         </div>
-        <hr>
-        </div>
+    </div>
 </article>
 <h2>Komentarai:</h2>
 <hr>

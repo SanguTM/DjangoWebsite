@@ -1,5 +1,7 @@
-User-Agent: *
-Disallow:
-Disallow: [disallowed URL]
+User-Agent: Googlebot
+Disallow: /gallery/
 
-Sitemap: https://domain.com/sitemap.xml
+User-agent: *
+Allow: /
+
+Sitemap: http://localhost:8000/sitemap.xml

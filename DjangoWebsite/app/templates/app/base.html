@@ -1,8 +1,10 @@
 <!DOCTYPE html>
-<html>
+<html lang="lt">
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="author" content="Linas Jurevius" />
+    <meta name="keywords" content="Naujienos, sportas" />
     <title>{{ title }} - My Django Application</title>
     {% load static %}
 
@@ -14,38 +16,38 @@
 
 </head>
 <body>
-    <nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
+    <nav class="navbar navbar-expand-md navbar-dark fixed-top navbar">
         <div class="container-fluid">
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
             <div class="collapse navbar-collapse" id="navbarCollapse">
                 <ul class="navbar-nav me-auto mb-2 mb-md-0">
-                    <li class="nav-item"><a class="nav-link green" href="{% url 'website-home' %}">Pagrindinis</a></li>
-                    <li class="nav-item"><a class="nav-link green" href="{% url 'website-gallery' %}">Galerija</a></li>
-                    <li class="nav-item"><a class="nav-link green" href="{% url 'website-prenumerate' %}">Prenumeruoti</a></li>
-                    <li class="nav-item"><a class="nav-link green" href="{% url 'website-about' %}">Apie</a></li>
-
-                    {% if user.is_authenticated %}
-                    <li class="nav-item"><a class="nav-link green" href="{% url 'profile' %}">Nustatymai</a></li>
-                    <li class="nav-item"><a class="nav-link green" href="{% url 'logout' %}">Atsijungti</a></li>
-                    {% else %}
-                    <li class="nav-item"><a class="nav-link green" href="{% url 'login' %}">Prisijungti</a></li>
-                    <li class="nav-item"><a class="nav-link green" href="{% url 'register' %}">Registruotis</a></li>
-                    {% endif %}
-                    {% if user.is_superuser %}
-                    <li class="nav-item"><a class="nav-link green" href="/admin">Admin</a></li>
-                    <li class="nav-item"><a class="nav-link green" href="{% url 'category-create' %}">Kategorijos</a></li>
-                    {% endif %}
+                    <li class="nav-item"><a class="nav-link" href="{% url 'website-home' %}">Pagrindinis</a></li>
                     {% if cat_menu %}
                     <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle" href="#" id="dropdown01" data-bs-toggle="dropdown" aria-expanded="false">Categories</a>
+                        <a class="nav-link dropdown-toggle" href="#" id="dropdown01" data-bs-toggle="dropdown" aria-expanded="false">Kategorijos</a>
                         <ul class="dropdown-menu" aria-labelledby="dropdown01">
                             {% for item in cat_menu %}
                             <li><a class="dropdown-item" href="{% url 'category' item.code %}">{{ item.name }}</a></li>
                             {% endfor %}
                         </ul>
                     </li>
+                    {% endif %}
+                    <li class="nav-item"><a class="nav-link" href="{% url 'website-gallery' %}">Galerija</a></li>
+                    <!-- <li class="nav-item"><a class="nav-link " href="{% url 'website-prenumerate' %}">Prenumeruoti</a></li>-->
+                    <li class="nav-item"><a class="nav-link" href="{% url 'website-about' %}">Apie</a></li>
+
+                    {% if user.is_authenticated %}
+                    <li class="nav-item"><a class="nav-link" href="{% url 'profile' %}">Nustatymai</a></li>
+                    <li class="nav-item"><a class="nav-link" href="{% url 'logout' %}">Atsijungti</a></li>
+                    {% else %}
+                    <li class="nav-item"><a class="nav-link" href="{% url 'login' %}">Prisijungti</a></li>
+                    <li class="nav-item"><a class="nav-link" href="{% url 'register' %}">Registruotis</a></li>
+                    {% endif %}
+                    {% if user.is_superuser %}
+                    <li class="nav-item"><a class="nav-link" href="/admin">Admin</a></li>
+                    <li class="nav-item"><a class="nav-link" href="{% url 'category-create' %}">Kategorijos</a></li>
                     {% endif %}
                 </ul>
             </div>
@@ -55,8 +57,8 @@
         <div class="container h-100">
             <div class="row h-100 align-items-center">
                 <div class="col-12 text-center">
-                    <h1 class="fw-light">Kačių įvairovovė</h1>
-                    <p class="lead">Naujienos apie kates iš viso pasaulio</p>
+                    <h1 class="fw-light">Lino naujienos</h1>
+                    <p class="lead"></p>
                 </div>
             </div>
         </div>
@@ -64,7 +66,7 @@
     <main role="main" class="container">
         <div class="row">
             <div class="col notshow notshow-m pt-3">
-                <div class="content-section">
+                <div class="content-section sides">
                     <h6>Vieta jūsų reklamai</h6>
                 </div>
             </div>
@@ -80,13 +82,13 @@
                 {% endblock %}
             </div>
             <div class="col notshow notshow-r pt-3">
-                <div class="content-section">
+                <div class="content-section sides">
                     <h3>Informacija</h3>
                     <ul class="list-group">
-                        <li class="list-group-item list-group-item-light">Latest Posts</li>
-                        <li class="list-group-item list-group-item-light">Announcements</li>
-                        <li class="list-group-item list-group-item-light">Calendars</li>
-                        <li class="list-group-item list-group-item-light">etc</li>
+                        <li class="info-box list-group-item list-group-item-light">Latest Posts</li>
+                        <li class="info-box list-group-item list-group-item-light">Announcements</li>
+                        <li class="info-box list-group-item list-group-item-light">Calendars</li>
+                        <li class="info-box list-group-item list-group-item-light">etc</li>
                     </ul>
                 </div>
             </div>
@@ -94,7 +96,7 @@
     </main>
 
 
-    <footer id="sticky-footer" class="flex-shrink-0 py-4">
+    <footer id="sticky-footer" class="flex-shrink-0 py-4 footer">
         <div class="container text-center">
             <address>2022 &copy; Linas Jurevičius</address>
         </div>
@@ -109,29 +111,29 @@
         <p>{{ post.data }}</p>
     {% endfor %}
         -->
-    {% block scripts %}
-    <script src="{% static 'app/scripts/modernizr-2.6.2.js' %}"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+                    {% block scripts %}
+                    <script src="{% static 'app/scripts/modernizr-2.6.2.js' %}"></script>
+                    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
 
-    <div>
-        <div id="modal01" class="w3-modal" onclick="this.style.display='none'">
-            <div class="w3-modal-content">
-                <img id="img01" style="width:100%">
-            </div>
-        </div>
+                    <div>
+                        <div id="modal01" class="w3-modal" onclick="this.style.display='none'">
+                            <div class="w3-modal-content">
+                                <img id="img01" style="width:100%">
+                            </div>
+                        </div>
 
-        <script>
-            function onClick(element) {
-                document.getElementById("img01").src = element.src;
-                document.getElementById("modal01").style.display = "block";
-            }
-        </script>
+                        <script>
+                            function onClick(element) {
+                                document.getElementById("img01").src = element.src;
+                                document.getElementById("modal01").style.display = "block";
+                            }
+                        </script>
 
-        <script>
-            var str = document.getElementById("ddd").innerHTML;
-            str = str.replace(/-/g, ' ');
-        </script>
-    </div>
-    {% endblock scripts %}
+                        <script>
+                            var str = document.getElementById("ddd").innerHTML;
+                            str = str.replace(/-/g, ' ');
+                        </script>
+                    </div>
+                    {% endblock scripts %}
 </body>
 </html>
